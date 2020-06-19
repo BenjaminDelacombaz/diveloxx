@@ -8,6 +8,7 @@ export class ErrorService {
 
   VALIDATION_TYPE = 'validation'
   FORM_TYPE = 'form'
+  AUTH_TYPE = 'auth'
 
   private errors = {
     validation: {
@@ -19,6 +20,10 @@ export class ErrorService {
     },
     form: {
       invalid: 'Le formulaire n\'est pas valide',
+    },
+    auth: {
+      "auth/user-not-found": 'L\'email ou le mot de passe est erroné.',
+      "auth/wrong-password": 'L\'email ou le mot de passe est erroné.',
     }
   }
 

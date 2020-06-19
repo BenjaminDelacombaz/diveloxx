@@ -17,4 +17,8 @@ export class AuthService {
   isAuthenticated(): Observable<boolean> {
     return this.angularFireAuth.user.pipe(map(user => user != null && user.uid != null), first())
   }
+
+  logout(): Promise<void> {
+    return this.angularFireAuth.signOut()
+  }
 }

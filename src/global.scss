@@ -24,3 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// Validation error
+div.validation-errors {
+    padding: 15px 15px 0px 15px;
+    .error-message {
+        color: var(--ion-color-danger);
+    }
+}

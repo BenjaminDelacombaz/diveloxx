@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { map, first } from 'rxjs/operators';
 import { Diver, DiverInterface } from 'src/app/models/diver.model';
 
 @Injectable({
@@ -16,6 +16,6 @@ export class DiverService {
     return this.angularFireStore
       .doc<Diver>(`${this.docPath}/${uid}`)
       .valueChanges()
-      .pipe(map((diver: DiverInterface) => new Diver(diver)))
+      .pipe(map((diver: DiverInterface) => new Diver(diver)), first())
   }
 }

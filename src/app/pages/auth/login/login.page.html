@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <ion-list>
       <!-- Email input item -->
       <ion-item>
@@ -36,6 +36,7 @@
         </ng-container>
       </div>
     </ion-list>
+    <button type="submit" hidden></button>
   </form>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="submit()">

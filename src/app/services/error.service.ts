@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ErrorService {
 
   VALIDATION_TYPE = 'validation'
+  FORM_TYPE = 'form'
 
   private errors = {
     validation: {
@@ -14,10 +16,13 @@ export class ErrorService {
       min: 'La valeur ne peut pas être inférieur à :min',
       max: 'La valeur ne peut pas être supérieur à :max',
       email: 'La valeur doit être une adresse e-mail valide',
+    },
+    form: {
+      invalid: 'Le formulaire n\'est pas valide',
     }
   }
 
-  constructor() { }
+  constructor(private toastController: ToastController) { }
 
   getErrorMsg(type: string, name: string, params: any = null) {
     let msg: string = this.errors[type][name]
@@ -27,5 +32,14 @@ export class ErrorService {
       }
     }
     return msg
+  }
+
+  getErrorMsgToast(type: string, name: string, params: any = null): Promise<HTMLIonToastElement> {
+    let msg = this.getErrorMsg(type, name, params)
+    return this.toastController.create({
+      message: msg,
+      duration: 5000,
+      color: 'danger',
+    })
   }
 }

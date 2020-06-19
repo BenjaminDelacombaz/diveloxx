@@ -1,9 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Se connecter</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="loginForm">
+    <ion-list>
+      <!-- Email input item -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(loginForm.controls.email.dirty || loginForm.controls.email.touched) && loginForm.controls.email.errors">
+        <ng-container *ngFor="let error of loginForm.controls.email.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Password input item -->
+      <ion-item>
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(loginForm.controls.password.dirty || loginForm.controls.password.touched) && loginForm.controls.password.errors">
+        <ng-container *ngFor="let error of loginForm.controls.password.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+  </form>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="submit()">
+      <ion-icon name="enter"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

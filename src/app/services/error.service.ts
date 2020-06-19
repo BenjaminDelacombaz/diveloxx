@@ -24,7 +24,7 @@ export class ErrorService {
 
   constructor(private toastController: ToastController) { }
 
-  getErrorMsg(type: string, name: string, params: any = null) {
+  getErrorMsg(type: string, name: string, params: any = null): string {
     let msg: string = this.errors[type][name]
     if (params instanceof Object) {
       for (let param in params) {

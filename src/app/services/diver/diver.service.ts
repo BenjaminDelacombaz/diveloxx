@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators'
-import { Diver, DiverInterface } from '../../models/diver.model'
+import { map } from 'rxjs/operators';
+import { Diver, DiverInterface } from 'src/app/models/diver.model';
 
 @Injectable({
   providedIn: 'root'

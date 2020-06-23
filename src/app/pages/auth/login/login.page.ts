@@ -42,7 +42,7 @@ export class LoginPage {
         let diver: Diver = await this.diverService.getDiver(userCredential.user.uid).toPromise()
         // Display success message
         ;(await this.toastController.create({
-          message: `Connexion réussie, Bonjour ${diver.name}`,
+          message: `Connexion réussie, Bonjour ${diver}`,
           duration: 5000,
           color: 'success',
         })).present()

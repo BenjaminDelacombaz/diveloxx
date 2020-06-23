@@ -13,6 +13,7 @@ export class ErrorService {
   private errors = {
     validation: {
       required: 'Le champ est requis',
+      minlength: 'La valeur ne peut pas contenir moins de :requiredLength caractères',
       maxlength: 'La valeur ne peut pas contenir plus de :requiredLength caractères',
       min: 'La valeur ne peut pas être inférieur à :min',
       max: 'La valeur ne peut pas être supérieur à :max',

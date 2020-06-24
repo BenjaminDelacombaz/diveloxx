@@ -35,20 +35,6 @@
           </div>
         </ng-container>
       </div>
-      <!-- Password confirmation input item -->
-      <ion-item>
-        <ion-label position="floating">Confirmation Mot de passe *</ion-label>
-        <ion-input type="password" formControlName="passwordConfirmation" required></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(registerForm.controls.passwordConfirmation.dirty || registerForm.controls.passwordConfirmation.touched) && registerForm.controls.passwordConfirmation.errors">
-        <ng-container *ngFor="let error of registerForm.controls.passwordConfirmation.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
-          </div>
-        </ng-container>
-      </div>
       <!-- Firstname input item -->
       <ion-item>
         <ion-label position="floating">Prénom *</ion-label>

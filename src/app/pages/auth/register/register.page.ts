@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ErrorService } from 'src/app/services/error/error.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { DiverService } from 'src/app/services/diver/diver.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -19,7 +18,6 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     private errorService: ErrorService,
     private authService: AuthService,
-    private diverService: DiverService,
     private toastController: ToastController,
     private router: Router,
   ) {
@@ -27,17 +25,27 @@ export class RegisterPage {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      phone: [''],
-      birthdate: ['']
     })
   }
 
   async submit(): Promise<void> {
     // Check if form is valid
     if (this.registerForm.valid) {
-      // Create account
+      try {
+        // Create the user
+        await this.authService.register(this.registerForm.value.email, this.registerForm.value.password)
+        // Display success message
+        ;(await this.toastController.create({
+          message: `Enregistrement réussie`,
+          duration: 5000,
+          color: 'success',
+        })).present()
+        // Go to profile creation
+        this.router.navigate([''])
+      } catch (error) {
+        // Display error toast
+        ;(await this.errorService.getErrorMsgToast(this.errorService.AUTH_TYPE, 'register-fail')).present()
+      }
     } else {
       // Mark all input as touched for displaying all errors
       this.registerForm.markAllAsTouched()

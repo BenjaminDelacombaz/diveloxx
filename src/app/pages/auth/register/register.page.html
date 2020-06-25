@@ -35,62 +35,6 @@
           </div>
         </ng-container>
       </div>
-      <!-- Firstname input item -->
-      <ion-item>
-        <ion-label position="floating">Prénom *</ion-label>
-        <ion-input type="text" formControlName="firstname" required></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(registerForm.controls.firstname.dirty || registerForm.controls.firstname.touched) && registerForm.controls.firstname.errors">
-        <ng-container *ngFor="let error of registerForm.controls.firstname.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
-          </div>
-        </ng-container>
-      </div>
-      <!-- Lastname input item -->
-      <ion-item>
-        <ion-label position="floating">Nom *</ion-label>
-        <ion-input type="text" formControlName="lastname" required></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(registerForm.controls.lastname.dirty || registerForm.controls.lastname.touched) && registerForm.controls.lastname.errors">
-        <ng-container *ngFor="let error of registerForm.controls.lastname.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
-          </div>
-        </ng-container>
-      </div>
-      <!-- Phone input item -->
-      <ion-item>
-        <ion-label position="floating">Téléphone</ion-label>
-        <ion-input type="text" formControlName="phone"></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(registerForm.controls.phone.dirty || registerForm.controls.phone.touched) && registerForm.controls.phone.errors">
-        <ng-container *ngFor="let error of registerForm.controls.phone.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
-          </div>
-        </ng-container>
-      </div>
-      <!-- Birthdate input item -->
-      <ion-item>
-        <ion-label position="floating">Date de naissance</ion-label>
-        <ion-input type="date" formControlName="birthdate"></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(registerForm.controls.birthdate.dirty || registerForm.controls.birthdate.touched) && registerForm.controls.birthdate.errors">
-        <ng-container *ngFor="let error of registerForm.controls.birthdate.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
-          </div>
-        </ng-container>
-      </div>
     </ion-list>
     <button type="submit" hidden></button>
   </form>

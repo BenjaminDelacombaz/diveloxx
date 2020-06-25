@@ -21,4 +21,8 @@ export class AuthService {
   logout(): Promise<void> {
     return this.angularFireAuth.signOut()
   }
+
+  register(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
+  }
 }

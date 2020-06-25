@@ -25,13 +25,15 @@ export class ErrorService {
     auth: {
       "auth/user-not-found": 'L\'email ou le mot de passe est erroné.',
       "auth/wrong-password": 'L\'email ou le mot de passe est erroné.',
-    }
+      "register-fail": 'Une erreur est survenue lors l\'inscription. Veuillez contacter l\'administrateur de l\'application.'
+    },
+    default: 'Une erreur est survenue. Veuillez contacter l\'administrateur de l\'application',
   }
 
   constructor(private toastController: ToastController) { }
 
   getErrorMsg(type: string, name: string, params: any = null): string {
-    let msg: string = this.errors[type][name]
+    let msg: string = this.errors[type][name] ? this.errors[type][name] : this.errors.default
     if (params instanceof Object) {
       for (let param in params) {
         msg = msg.replace(`:${param}`, params[param])

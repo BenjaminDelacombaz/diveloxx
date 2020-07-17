@@ -34,12 +34,6 @@ export class RegisterPage {
       try {
         // Create the user
         await this.authService.register(this.registerForm.value.email, this.registerForm.value.password)
-        // Display success message
-        ;(await this.toastController.create({
-          message: `Enregistrement réussie`,
-          duration: 5000,
-          color: 'success',
-        })).present()
         // Go to home
         this.router.navigate([''])
       } catch (error) {

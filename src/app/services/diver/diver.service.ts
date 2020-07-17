@@ -20,8 +20,9 @@ export class DiverService {
       .pipe(map((diver: DiverInterface) => new Diver(diver)), first())
   }
 
-  async create(uid: string, diver: Diver): Promise<Observable<Diver>> {
-    await this.angularFireStore.doc<Diver>(`${this.docPath}/${uid}`).set(diver)
-    return this.getDiver(uid)
+  async create(diverInterface: DiverInterface, uid: string = null): Promise<Observable<Diver>> {
+    let docId: string = uid ? uid : this.angularFireStore.createId()
+    await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).set(diverInterface)
+    return this.getDiver(docId)
   }
 }

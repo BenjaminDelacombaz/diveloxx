@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'diver-edit',
+    path: 'divers/create',
     loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
   },
 ];

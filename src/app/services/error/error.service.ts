@@ -9,6 +9,7 @@ export class ErrorService {
   VALIDATION_TYPE = 'validation'
   FORM_TYPE = 'form'
   AUTH_TYPE = 'auth'
+  GUARD_TYPE = 'guard'
 
   private errors = {
     validation: {
@@ -26,6 +27,10 @@ export class ErrorService {
       "auth/user-not-found": 'L\'email ou le mot de passe est erroné.',
       "auth/wrong-password": 'L\'email ou le mot de passe est erroné.',
       "register-fail": 'Une erreur est survenue lors l\'inscription. Veuillez contacter l\'administrateur de l\'application.'
+    },
+    guard: {
+      "not-auth": 'Vous devez être authentifié pour accèder à cette page.',
+      "no-profile": 'Vous devez créer votre profil de plongeur.',
     },
     default: 'Une erreur est survenue. Veuillez contacter l\'administrateur de l\'application',
   }

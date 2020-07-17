@@ -25,4 +25,8 @@ export class AuthService {
   register(email: string, password: string): Promise<firebase.auth.UserCredential> {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
   }
+
+  getUser(): Observable<firebase.User> {
+    return this.angularFireAuth.user
+  }
 }

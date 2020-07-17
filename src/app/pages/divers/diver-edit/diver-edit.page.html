@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Créer un plongeur</ion-title>
+    <ion-title>Créer
+      <span *ngIf="myProfile">votre profil</span>
+      <span *ngIf="!myProfile">un plongeur</span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 

@@ -7,6 +7,7 @@ import { DiverService } from 'src/app/services/diver/diver.service';
 import { Diver, DiverInterface } from 'src/app/models/diver.model';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-diver-edit',
@@ -16,6 +17,7 @@ import { Observable } from 'rxjs';
 export class DiverEditPage implements OnInit {
 
   private diverForm: FormGroup
+  private myProfile: boolean
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,6 +25,7 @@ export class DiverEditPage implements OnInit {
     private toastController: ToastController,
     private router: Router,
     private diverService: DiverService,
+    private authService: AuthService,
   ) {
     // Init form
     this.diverForm = this.formBuilder.group({
@@ -32,19 +35,27 @@ export class DiverEditPage implements OnInit {
       phone: [''],
       birthdate: [''],
     })
+
+    // Detect if the user create/edit his diver
+    this.myProfile = router.url.includes('/my-profile')
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    if (this.myProfile) {
+      this.diverForm.controls.email.setValue((await  this.authService.getUser().toPromise()).email)
+    }
   }
 
   async submit(): Promise<void> {
     // Check if form is valid
     if (this.diverForm.valid) {
       try {
+        // Set uid if user create his profile
+        let uid: string = this.myProfile ? (await this.authService.getUser().toPromise()).uid : null
         // Convert the birthdate
         let birthdate = this.diverForm.value.birthdate ? firebase.firestore.Timestamp.fromDate(new Date(this.diverForm.value.birthdate)) : null
         // Create the diver
-        let diver$: Observable<Diver> = await this.diverService.create({email: this.diverForm.value.email, firstname: this.diverForm.value.firstname, lastname: this.diverForm.value.lastname, phone: this.diverForm.value.phone, birthdate: birthdate})
+        let diver$: Observable<Diver> = await this.diverService.create({email: this.diverForm.value.email, firstname: this.diverForm.value.firstname, lastname: this.diverForm.value.lastname, phone: this.diverForm.value.phone, birthdate: birthdate}, uid)
         let diver: Diver = await diver$.toPromise()
         // Display success message
         ;(await this.toastController.create({

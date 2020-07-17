@@ -37,15 +37,7 @@ export class LoginPage {
     if (this.loginForm.valid) {
       try {
         // Login the user
-        let userCredential: firebase.auth.UserCredential = await this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
-        // Get the diver
-        let diver: Diver = await this.diverService.getDiver(userCredential.user.uid).toPromise()
-        // Display success message
-        ;(await this.toastController.create({
-          message: `Connexion réussie, Bonjour ${diver}`,
-          duration: 5000,
-          color: 'success',
-        })).present()
+        await this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
         // Go to home
         this.router.navigate([''])
       } catch (error) {

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { HasProfileGuard } from './guards/hasProfile/has-profile.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'divers/create',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
   },
 ];

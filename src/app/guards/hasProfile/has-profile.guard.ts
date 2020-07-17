@@ -35,7 +35,7 @@ export class HasProfileGuard implements CanActivate {
               map((diver: Diver) => {
                 if (!diver) {
                   this.errorService.getErrorMsgToast(this.errorService.GUARD_TYPE, 'no-profile').then(toast => toast.present())
-                  this.router.navigate(['divers/create'])
+                  this.router.navigate(['my-profile/create'])
                 }
                 return !!diver
               })

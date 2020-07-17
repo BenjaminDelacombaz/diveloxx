@@ -24,6 +24,11 @@ const routes: Routes = [
   },
   {
     path: 'divers/create',
+    canActivate: [AuthGuard, HasProfileGuard],
+    loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
+  },
+  {
+    path: 'my-profile/create',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
   },

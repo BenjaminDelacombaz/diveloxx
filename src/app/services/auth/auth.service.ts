@@ -27,6 +27,6 @@ export class AuthService {
   }
 
   getUser(): Observable<firebase.User> {
-    return this.angularFireAuth.user
+    return this.angularFireAuth.user.pipe(first())
   }
 }

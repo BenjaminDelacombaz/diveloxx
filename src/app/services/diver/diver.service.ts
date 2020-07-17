@@ -17,7 +17,7 @@ export class DiverService {
     return this.angularFireStore
       .doc<Diver>(`${this.docPath}/${uid}`)
       .valueChanges()
-      .pipe(map((diver: DiverInterface) => new Diver(diver)), first())
+      .pipe(map((diver: DiverInterface) => diver ? new Diver(diver) : null), first())
   }
 
   async create(diverInterface: DiverInterface, uid: string = null): Promise<Observable<Diver>> {

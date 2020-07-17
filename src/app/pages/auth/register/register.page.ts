@@ -40,7 +40,7 @@ export class RegisterPage {
           duration: 5000,
           color: 'success',
         })).present()
-        // Go to profile creation
+        // Go to home
         this.router.navigate([''])
       } catch (error) {
         // Display error toast

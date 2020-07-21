@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map, first } from 'rxjs/operators';
+import { map, first, flatMap } from 'rxjs/operators';
 import { Diver, DiverInterface } from 'src/app/models/diver.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +13,26 @@ export class DiverService {
 
   constructor(private angularFireStore: AngularFirestore) { }
 
-  getDiver(uid: string) {
+  getDiver(docId: string) {
     return this.angularFireStore
-      .doc<Diver>(`${this.docPath}/${uid}`)
+      .doc<Diver>(`${this.docPath}/${docId}`)
       .valueChanges()
       .pipe(map((diver: DiverInterface) => diver ? new Diver(diver) : null), first())
   }
 
-  async create(diverInterface: DiverInterface, uid: string = null): Promise<Observable<Diver>> {
-    let docId: string = uid ? uid : this.angularFireStore.createId()
+  getDiverByUid(uid: string): Observable<Diver> {
+    return this.angularFireStore
+      .collection<Diver>(this.docPath, divers => divers.where('uid', '==', uid).limit(1))
+      .valueChanges()
+      .pipe(
+        flatMap(divers => divers.length ? divers : of(null)),
+        map((diver: DiverInterface) => diver ? new Diver(diver) : null),
+        first()
+      )
+  }
+
+  async create(diverInterface: DiverInterface): Promise<Observable<Diver>> {
+    let docId: string = this.angularFireStore.createId()
     await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).set(diverInterface)
     return this.getDiver(docId)
   }

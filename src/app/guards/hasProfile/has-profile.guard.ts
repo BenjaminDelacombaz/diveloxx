@@ -30,7 +30,7 @@ export class HasProfileGuard implements CanActivate {
             this.router.navigate(['login'])
             return of(false)
           }
-          return this.diverService.getDiver(user.uid)
+          return this.diverService.getDiverByUid(user.uid)
             .pipe(
               map((diver: Diver) => {
                 if (!diver) {

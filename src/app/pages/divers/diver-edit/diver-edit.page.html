@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Créer
+      <span *ngIf="myProfile">votre profil</span>
+      <span *ngIf="!myProfile">un plongeur</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="diverForm" (ngSubmit)="submit()">
+    <ion-list>
+      <!-- Email input item -->
+      <ion-item>
+        <ion-label position="floating">Email *</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diverForm.controls.email.dirty || diverForm.controls.email.touched) && diverForm.controls.email.errors">
+        <ng-container *ngFor="let error of diverForm.controls.email.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Firstname input item -->
+      <ion-item>
+        <ion-label position="floating">Prénom *</ion-label>
+        <ion-input type="text" formControlName="firstname" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diverForm.controls.firstname.dirty || diverForm.controls.firstname.touched) && diverForm.controls.firstname.errors">
+        <ng-container *ngFor="let error of diverForm.controls.firstname.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Lastname input item -->
+      <ion-item>
+        <ion-label position="floating">Nom *</ion-label>
+        <ion-input type="text" formControlName="lastname" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diverForm.controls.lastname.dirty || diverForm.controls.lastname.touched) && diverForm.controls.lastname.errors">
+        <ng-container *ngFor="let error of diverForm.controls.lastname.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Phone input item -->
+      <ion-item>
+        <ion-label position="floating">Téléphone</ion-label>
+        <ion-input type="text" formControlName="phone"></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diverForm.controls.phone.dirty || diverForm.controls.phone.touched) && diverForm.controls.phone.errors">
+        <ng-container *ngFor="let error of diverForm.controls.phone.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Birthdate input item -->
+      <ion-item>
+        <ion-label position="floating">Date de naissance</ion-label>
+        <ion-input type="date" formControlName="birthdate"></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diverForm.controls.birthdate.dirty || diverForm.controls.birthdate.touched) && diverForm.controls.birthdate.errors">
+        <ng-container *ngFor="let error of diverForm.controls.birthdate.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+    <button type="submit" hidden></button>
+  </form>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="submit()">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

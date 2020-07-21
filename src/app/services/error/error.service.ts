@@ -29,7 +29,7 @@ export class ErrorService {
       "register-fail": 'Une erreur est survenue lors l\'inscription. Veuillez contacter l\'administrateur de l\'application.'
     },
     guard: {
-      "not-auth": 'Vous devez être authentifié pour accèder à cette page.',
+      "not-auth": 'Vous devez être authentifié pour accéder à cette page.',
       "no-profile": 'Vous devez créer votre profil de plongeur.',
     },
     default: 'Une erreur est survenue. Veuillez contacter l\'administrateur de l\'application',

@@ -8,6 +8,8 @@ import { DiverEditPageRoutingModule } from './diver-edit-routing.module';
 
 import { DiverEditPage } from './diver-edit.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { DiverEditPage } from './diver-edit.page';
     IonicModule,
     DiverEditPageRoutingModule,
     ReactiveFormsModule,
+    TranslateModule.forChild(),
   ],
   declarations: [DiverEditPage]
 })

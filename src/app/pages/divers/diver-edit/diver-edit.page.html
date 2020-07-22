@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Créer
-      <span *ngIf="myProfile">votre profil</span>
-      <span *ngIf="!myProfile">un plongeur</span>
+    <ion-title>
+      <span *ngIf="myProfile">{{ 'editDiverPage.create-profile' | translate }}</span>
+      <span *ngIf="!myProfile">{{ 'editDiverPage.create-diver' | translate }}</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
     <ion-list>
       <!-- Email input item -->
       <ion-item>
-        <ion-label position="floating">Email *</ion-label>
+        <ion-label position="floating">{{ 'editDiverPage.email' | translate }} *</ion-label>
         <ion-input type="email" formControlName="email" required></ion-input>
       </ion-item>
       <div class="validation-errors"
@@ -26,7 +26,7 @@
       </div>
       <!-- Firstname input item -->
       <ion-item>
-        <ion-label position="floating">Prénom *</ion-label>
+        <ion-label position="floating">{{ 'editDiverPage.firstname' | translate }} *</ion-label>
         <ion-input type="text" formControlName="firstname" required></ion-input>
       </ion-item>
       <div class="validation-errors"
@@ -40,7 +40,7 @@
       </div>
       <!-- Lastname input item -->
       <ion-item>
-        <ion-label position="floating">Nom *</ion-label>
+        <ion-label position="floating">{{ 'editDiverPage.lastname' | translate }} *</ion-label>
         <ion-input type="text" formControlName="lastname" required></ion-input>
       </ion-item>
       <div class="validation-errors"
@@ -54,7 +54,7 @@
       </div>
       <!-- Phone input item -->
       <ion-item>
-        <ion-label position="floating">Téléphone</ion-label>
+        <ion-label position="floating">{{ 'editDiverPage.phone' | translate }}</ion-label>
         <ion-input type="text" formControlName="phone"></ion-input>
       </ion-item>
       <div class="validation-errors"
@@ -68,7 +68,7 @@
       </div>
       <!-- Birthdate input item -->
       <ion-item>
-        <ion-label position="floating">Date de naissance</ion-label>
+        <ion-label position="floating">{{ 'editDiverPage.birthdate' | translate }}</ion-label>
         <ion-input type="date" formControlName="birthdate"></ion-input>
       </ion-item>
       <div class="validation-errors"

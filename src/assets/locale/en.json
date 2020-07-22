@@ -9,6 +9,16 @@
         "email": "Email",
         "password": "Password"
     },
+    "editDiverPage": {
+        "email": "Email",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "phone": "Phone",
+        "birthdate": "Birthdate",
+        "create-diver": "Create a diver",
+        "create-profile": "Create your profile",
+        "create-success": "{{diver}} was successfully created"
+    },
     "errors": {
         "validation": {
             "required": "The field is required",

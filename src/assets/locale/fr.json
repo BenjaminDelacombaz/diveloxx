@@ -9,6 +9,16 @@
         "email": "Email",
         "password": "Mot de passe"
     },
+    "editDiverPage": {
+        "email": "Email",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "phone": "Téléphone",
+        "birthdate": "Date de naissance",
+        "create-diver": "Créer un plongeur",
+        "create-profile": "Créer votre profil",
+        "create-success": "{{diver}} a été créé avec succès"
+    },
     "errors": {
         "validation": {
             "required": "Le champ est requis",

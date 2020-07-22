@@ -8,6 +8,7 @@ import { Diver, DiverInterface } from 'src/app/models/diver.model';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-diver-edit',
@@ -26,6 +27,7 @@ export class DiverEditPage implements OnInit {
     private router: Router,
     private diverService: DiverService,
     private authService: AuthService,
+    private translate: TranslateService,
   ) {
     // Init form
     this.diverForm = this.formBuilder.group({
@@ -59,7 +61,7 @@ export class DiverEditPage implements OnInit {
         let diver: Diver = await diver$.toPromise()
         // Display success message
         ;(await this.toastController.create({
-          message: `Enregistrement de ${diver} réussie`,
+          message: this.translate.instant('editDiverPage.create-success', {diver: diver}),
           duration: 5000,
           color: 'success',
         })).present()

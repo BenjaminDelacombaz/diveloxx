@@ -4,6 +4,11 @@
         "email": "Email",
         "password": "Password"
     },
+    "registerPage": {
+        "register": "Register",
+        "email": "Email",
+        "password": "Password"
+    },
     "errors": {
         "validation": {
             "required": "The field is required",

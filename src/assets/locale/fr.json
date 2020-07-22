@@ -4,6 +4,11 @@
         "email": "Email",
         "password": "Mot de passe"
     },
+    "registerPage": {
+        "register": "S'enregistrer",
+        "email": "Email",
+        "password": "Mot de passe"
+    },
     "errors": {
         "validation": {
             "required": "Le champ est requis",

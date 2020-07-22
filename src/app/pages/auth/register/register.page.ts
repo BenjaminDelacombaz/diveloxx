@@ -4,6 +4,7 @@ import { ErrorService } from 'src/app/services/error/error.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterPage {
     private authService: AuthService,
     private toastController: ToastController,
     private router: Router,
+    private translate: TranslateService,
   ) {
     // Init form
     this.registerForm = this.formBuilder.group({
@@ -38,13 +40,21 @@ export class RegisterPage {
         this.router.navigate([''])
       } catch (error) {
         // Display error toast
-        ;(await this.errorService.getErrorMsgToast(this.errorService.AUTH_TYPE, 'register-fail')).present()
+        ;(await this.toastController.create({
+          message: this.translate.instant('auth.register-fail'),
+          duration: 5000,
+          color: 'danger',
+        })).present()
       }
     } else {
       // Mark all input as touched for displaying all errors
       this.registerForm.markAllAsTouched()
       // Display error toast
-      ;(await this.errorService.getErrorMsgToast(this.errorService.FORM_TYPE, 'invalid')).present()
+      ;(await this.toastController.create({
+        message: this.translate.instant('form.invalid'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
     }
   }
 }

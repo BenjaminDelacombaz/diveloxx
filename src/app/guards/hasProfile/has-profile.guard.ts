@@ -5,7 +5,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { DiverService } from 'src/app/services/diver/diver.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Diver } from 'src/app/models/diver.model';
-import { ErrorService } from 'src/app/services/error/error.service';
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +17,23 @@ export class HasProfileGuard implements CanActivate {
     public authService: AuthService,
     public diverService: DiverService,
     public router: Router,
-    public errorService: ErrorService,
-  ) {}
-  
+    public toastController: ToastController,
+    public translate: TranslateService,
+  ) { }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.authService.getUser()
+    return this.authService.getUser()
       .pipe(
         switchMap((user: firebase.User) => {
           if (!user) {
-            this.errorService.getErrorMsgToast(this.errorService.GUARD_TYPE, 'not-auth').then(toast => toast.present())
+            // Display error toast
+            this.toastController.create({
+              message: this.translate.instant('guard.not-auth'),
+              duration: 5000,
+              color: 'danger',
+            }).then(toast => toast.present())
             this.router.navigate(['login'])
             return of(false)
           }
@@ -34,7 +41,12 @@ export class HasProfileGuard implements CanActivate {
             .pipe(
               map((diver: Diver) => {
                 if (!diver) {
-                  this.errorService.getErrorMsgToast(this.errorService.GUARD_TYPE, 'no-profile').then(toast => toast.present())
+                  // Display error toast
+                  this.toastController.create({
+                    message: this.translate.instant('guard.no-profile'),
+                    duration: 5000,
+                    color: 'danger',
+                  }).then(toast => toast.present())
                   this.router.navigate(['my-profile/create'])
                 }
                 return !!diver

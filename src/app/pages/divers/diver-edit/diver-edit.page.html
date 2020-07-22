@@ -20,7 +20,7 @@
         <ng-container *ngFor="let error of diverForm.controls.email.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
           </div>
         </ng-container>
       </div>
@@ -34,7 +34,7 @@
         <ng-container *ngFor="let error of diverForm.controls.firstname.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
           </div>
         </ng-container>
       </div>
@@ -48,7 +48,7 @@
         <ng-container *ngFor="let error of diverForm.controls.lastname.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
           </div>
         </ng-container>
       </div>
@@ -62,7 +62,7 @@
         <ng-container *ngFor="let error of diverForm.controls.phone.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
           </div>
         </ng-container>
       </div>
@@ -76,7 +76,7 @@
         <ng-container *ngFor="let error of diverForm.controls.birthdate.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getErrorMsg(errorService.VALIDATION_TYPE, error.key, error.value) }}
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
           </div>
         </ng-container>
       </div>

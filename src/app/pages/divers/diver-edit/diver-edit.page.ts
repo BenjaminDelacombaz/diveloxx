@@ -79,7 +79,11 @@ export class DiverEditPage implements OnInit {
       // Mark all input as touched for displaying all errors
       this.diverForm.markAllAsTouched()
       // Display error toast
-      ;(await this.errorService.getErrorMsgToast(this.errorService.FORM_TYPE, 'invalid')).present()
+      ;(await this.toastController.create({
+        message: this.translate.instant('form.invalid'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
     }
   }
 

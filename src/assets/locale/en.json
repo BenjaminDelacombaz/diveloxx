@@ -1,4 +1,23 @@
 {
+    "form": {
+        "invalid": "The form is not valid",
+        "validation": {
+            "required": "The field is required",
+            "minlength": "The value cannot contain less than {{requiredLength}} characters",
+            "maxlength": "The value cannot contain more than {{requiredLength}} characters",
+            "min": "The value cannot be less than {{min}}",
+            "max": "The value cannot be greater than {{max}}",
+            "email": "The value must be a valid e-mail address"
+        }
+    },
+    "auth": {
+        "login-fail": "The email or password is wrong",
+        "register-fail": "An error occurred during registration. Please contact the application administrator"
+    },
+    "guard": {
+        "not-auth": "You must be authenticated to access this page",
+        "no-profile": "You need to create your diver profile"
+    },
     "loginPage": {
         "login": "Login",
         "email": "Email",
@@ -19,27 +38,5 @@
         "create-profile": "Create your profile",
         "create-success": "{{diver}} was successfully created",
         "create-fail": "An error occurred during the creation of the diver"
-    },
-    "errors": {
-        "validation": {
-            "required": "The field is required",
-            "minlength": "The value cannot contain less than {{requiredLength}} characters",
-            "maxlength": "The value cannot contain more than {{requiredLength}} characters",
-            "min": "The value cannot be less than {{min}}",
-            "max": "The value cannot be greater than {{max}}",
-            "email": "The value must be a valid e-mail address"
-        },
-        "form": {
-            "invalid": "The form is not valid"
-        },
-        "auth": {
-            "auth/user-not-found": "The email or password is wrong",
-            "auth/wrong-password": "The email or password is wrong",
-            "register-fail": "An error occurred during registration. Please contact the application administrator"
-        },
-        "guard": {
-            "not-auth": "You must be authenticated to access this page",
-            "no-profile": "You need to create your diver profile"
-        }
     }
 }

@@ -3,14 +3,20 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { map } from 'rxjs/operators';
-import { ErrorService } from 'src/app/services/error/error.service';
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(public authService: AuthService, public router: Router, public errorService: ErrorService) {}
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public toastController: ToastController,
+    public translate: TranslateService
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -19,7 +25,12 @@ export class AuthGuard implements CanActivate {
         .pipe(
           map((isAuthenticated: boolean) => {
             if (!isAuthenticated) {
-              this.errorService.getErrorMsgToast(this.errorService.GUARD_TYPE, 'not-auth').then(toast => toast.present())
+              // Display error toast
+              this.toastController.create({
+                message: this.translate.instant('guard.not-auth'),
+                duration: 5000,
+                color: 'danger',
+              }).then(toast => toast.present())
               this.router.navigate(['login'])
             }
             return isAuthenticated;

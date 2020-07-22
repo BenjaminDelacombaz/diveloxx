@@ -69,7 +69,11 @@ export class DiverEditPage implements OnInit {
         this.router.navigate([''])
       } catch (error) {
         // Display error toast
-        ;(await this.errorService.getErrorMsgToast(this.errorService.AUTH_TYPE, 'diver-create-fail')).present()
+        ;(await this.toastController.create({
+          message: this.translate.instant('editDiverPage.create-fail'),
+          duration: 5000,
+          color: 'danger',
+        })).present()
       }
     } else {
       // Mark all input as touched for displaying all errors

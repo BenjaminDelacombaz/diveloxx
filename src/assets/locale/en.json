@@ -17,7 +17,8 @@
         "birthdate": "Birthdate",
         "create-diver": "Create a diver",
         "create-profile": "Create your profile",
-        "create-success": "{{diver}} was successfully created"
+        "create-success": "{{diver}} was successfully created",
+        "create-fail": "An error occurred during the creation of the diver"
     },
     "errors": {
         "validation": {

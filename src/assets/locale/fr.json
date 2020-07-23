@@ -21,12 +21,14 @@
     "loginPage": {
         "login": "Se connecter",
         "email": "Email",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "noAccount": "Pas de compte ?"
     },
     "registerPage": {
         "register": "S'enregistrer",
         "email": "Email",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "alreadyAnAccount": "Déjà un compte ?"
     },
     "editDiverPage": {
         "email": "Email",

@@ -27,7 +27,8 @@
     "registerPage": {
         "register": "S'enregistrer",
         "email": "Email",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "alreadyAnAccount": "Déjà un compte ?"
     },
     "editDiverPage": {
         "email": "Email",

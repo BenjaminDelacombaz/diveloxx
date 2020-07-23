@@ -27,7 +27,8 @@
     "registerPage": {
         "register": "Register",
         "email": "Email",
-        "password": "Password"
+        "password": "Password",
+        "alreadyAnAccount": "Already an account?"
     },
     "editDiverPage": {
         "email": "Email",

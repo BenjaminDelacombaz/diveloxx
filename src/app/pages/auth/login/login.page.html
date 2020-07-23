@@ -1,46 +1,42 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>{{ 'loginPage.login' | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <img src="assets/images/logo.png" alt="logo" id="logo" />
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <ion-list>
       <!-- Email input item -->
-      <ion-item>
-        <ion-label position="floating">{{ 'loginPage.email' | translate }}</ion-label>
-        <ion-input type="email" formControlName="email" required></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(loginForm.controls.email.dirty || loginForm.controls.email.touched) && loginForm.controls.email.errors">
-        <ng-container *ngFor="let error of loginForm.controls.email.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getInputValidationMsg(error.key, error.value) }}
-          </div>
-        </ng-container>
+      <div class="input-with-errors">
+        <ion-item>
+          <ion-label position="floating">{{ 'loginPage.email' | translate }}</ion-label>
+          <ion-input type="email" formControlName="email" required></ion-input>
+        </ion-item>
+        <div class="validation-errors"
+          *ngIf="(loginForm.controls.email.dirty || loginForm.controls.email.touched) && loginForm.controls.email.errors">
+          <ng-container *ngFor="let error of loginForm.controls.email.errors | keyvalue">
+            <div class="error-message">
+              <ion-icon name="alert-circle-outline"></ion-icon>
+              {{ errorService.getInputValidationMsg(error.key, error.value) }}
+            </div>
+          </ng-container>
+        </div>
       </div>
       <!-- Password input item -->
-      <ion-item>
-        <ion-label position="floating">{{ 'loginPage.password' | translate }}</ion-label>
-        <ion-input type="password" formControlName="password" required></ion-input>
-      </ion-item>
-      <div class="validation-errors"
-        *ngIf="(loginForm.controls.password.dirty || loginForm.controls.password.touched) && loginForm.controls.password.errors">
-        <ng-container *ngFor="let error of loginForm.controls.password.errors | keyvalue">
-          <div class="error-message">
-            <ion-icon name="alert-circle-outline"></ion-icon>
-            {{ errorService.getInputValidationMsg(error.key, error.value) }}
-          </div>
-        </ng-container>
+      <div class="input-with-errors">
+        <ion-item>
+          <ion-label position="floating">{{ 'loginPage.password' | translate }}</ion-label>
+          <ion-input type="password" formControlName="password" required></ion-input>
+        </ion-item>
+        <div class="validation-errors"
+          *ngIf="(loginForm.controls.password.dirty || loginForm.controls.password.touched) && loginForm.controls.password.errors">
+          <ng-container *ngFor="let error of loginForm.controls.password.errors | keyvalue">
+            <div class="error-message">
+              <ion-icon name="alert-circle-outline"></ion-icon>
+              {{ errorService.getInputValidationMsg(error.key, error.value) }}
+            </div>
+          </ng-container>
+        </div>
       </div>
+
     </ion-list>
-    <button type="submit" hidden></button>
+    <ion-button expand="block" type="submit">{{ 'loginPage.login' | translate }}</ion-button>
   </form>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="submit()">
-      <ion-icon name="enter"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-button expand="block" [routerLink]="['/register']">{{ 'loginPage.noAccount' | translate }}</ion-button>
 </ion-content>

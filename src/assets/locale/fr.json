@@ -1,4 +1,8 @@
 {
+    "tabs": {
+        "tools": "Outils",
+        "home": "Accueil"
+    },
     "form": {
         "invalid": "Le formulaire n'est pas valide",
         "validation": {

@@ -32,6 +32,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
   },
+  {
+    path: 'divers',
+    loadChildren: () => import('./pages/divers/diver-index/diver-index.module').then( m => m.DiverIndexPageModule)
+  },
+
 ];
 
 @NgModule({

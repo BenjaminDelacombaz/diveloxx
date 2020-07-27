@@ -38,7 +38,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/divers/diver-index/diver-index.module').then( m => m.DiverIndexPageModule)
   },
   {
-    path: 'divers/{id}',
+    path: 'divers/:id',
     canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/divers/diver-show/diver-show.module').then( m => m.DiverShowPageModule)
   },

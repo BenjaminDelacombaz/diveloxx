@@ -1,4 +1,5 @@
 export interface DiverInterface {
+    id: string
     firstname: string
     lastname: string
     email: string
@@ -7,6 +8,7 @@ export interface DiverInterface {
     uid: string
 }
 export class Diver implements DiverInterface {
+    public id: string
     public firstname: string
     public lastname: string
     public email: string
@@ -15,6 +17,7 @@ export class Diver implements DiverInterface {
     public uid: string
 
     constructor(diver: DiverInterface) {
+        this.id = diver.id
         this.firstname = diver.firstname
         this.lastname = diver.lastname
         this.email = diver.email

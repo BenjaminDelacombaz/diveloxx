@@ -17,7 +17,16 @@ export class DiverService {
     return this.angularFireStore
       .doc<DiverInterface>(`${this.docPath}/${docId}`)
       .valueChanges()
-      .pipe(map((diver: DiverInterface) => diver ? new Diver(diver) : null), first())
+      .pipe(
+        map((diverI: DiverInterface) => {
+          if (diverI) {
+            diverI.id = docId
+            return new Diver(diverI)
+          }
+          return null
+        }),
+        first()
+      )
   }
 
   getDiverByUid(uid: string): Observable<Diver> {
@@ -46,6 +55,7 @@ export class DiverService {
 
   private documentToDiver(doc: DocumentChangeAction<DiverInterface>) {
     let diver: DiverInterface = doc.payload.doc.data()
+    diver.id = doc.payload.doc.id
     return new Diver(diver)
   }
 }

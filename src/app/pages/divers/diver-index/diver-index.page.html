@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item lines="full" *ngFor="let diver of (divers$ | async)">
+    <ion-item lines="full" *ngFor="let diver of (divers$ | async)" [routerLink]="['/divers', diver.id]" detail>
       <ion-label>
         <h2>{{ diver }}</h2>
       </ion-label>

@@ -1,4 +1,5 @@
 {
+    "search": "Rechercher",
     "tabs": {
         "divers": "Plongeurs",
         "home": "Accueil"
@@ -44,5 +45,8 @@
         "create-profile": "Créer votre profil",
         "create-success": "{{diver}} a été créé avec succès",
         "create-fail": "Une erreur est survenu lors de la création du plongeur"
+    },
+    "indexDiverPage": {
+        "divers": "Plongeurs"
     }
 }

@@ -1,4 +1,5 @@
 {
+    "search": "Search",
     "tabs": {
         "divers": "Divers",
         "home": "Home"
@@ -44,5 +45,8 @@
         "create-profile": "Create your profile",
         "create-success": "{{diver}} was successfully created",
         "create-fail": "An error occurred during the creation of the diver"
+    },
+    "indexDiverPage": {
+        "divers": "Divers"
     }
 }

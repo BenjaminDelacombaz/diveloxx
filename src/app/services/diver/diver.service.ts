@@ -15,7 +15,7 @@ export class DiverService {
 
   getDiver(docId: string) {
     return this.angularFireStore
-      .doc<Diver>(`${this.docPath}/${docId}`)
+      .doc<DiverInterface>(`${this.docPath}/${docId}`)
       .valueChanges()
       .pipe(map((diver: DiverInterface) => diver ? new Diver(diver) : null), first())
   }

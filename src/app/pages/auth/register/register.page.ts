@@ -36,8 +36,8 @@ export class RegisterPage {
       try {
         // Create the user
         await this.authService.register(this.registerForm.value.email, this.registerForm.value.password)
-        // Go to home
-        this.router.navigate([''])
+        // Go to profile creation
+        this.router.navigate(['/my-profile/create'])
       } catch (error) {
         // Display error toast
         ;(await this.toastController.create({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ErrorService } from 'src/app/services/error/error.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DiverService } from 'src/app/services/diver/diver.service';
 import { Diver, DiverInterface } from 'src/app/models/diver.model';
@@ -28,6 +28,7 @@ export class DiverEditPage implements OnInit {
     private diverService: DiverService,
     private authService: AuthService,
     private translate: TranslateService,
+    private navController: NavController,
   ) {
     // Init form
     this.diverForm = this.formBuilder.group({
@@ -65,8 +66,12 @@ export class DiverEditPage implements OnInit {
           duration: 5000,
           color: 'success',
         })).present()
-        // Go to home
-        this.router.navigate([''])
+        if (this.myProfile) {
+          this.navController.navigateRoot([''])
+        } else {
+          // Go back
+          this.navController.back()
+        }
       } catch (error) {
         // Display error toast
         ;(await this.toastController.create({

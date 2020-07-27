@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>
       <span *ngIf="myProfile">{{ 'editDiverPage.create-profile' | translate }}</span>
       <span *ngIf="!myProfile">{{ 'editDiverPage.create-diver' | translate }}</span>

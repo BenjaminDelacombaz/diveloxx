@@ -46,6 +46,11 @@ export class DiverService {
     return this.getDiver(docId)
   }
 
+  async update(docId: string, diverI: Partial<DiverInterface>): Promise<Observable<Diver>> {
+    await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).update(diverI)
+    return this.getDiver(docId)
+  }
+
   getDivers(): Observable<Diver[]> {
     return this.angularFireStore
       .collection<DiverInterface>(this.docPath)

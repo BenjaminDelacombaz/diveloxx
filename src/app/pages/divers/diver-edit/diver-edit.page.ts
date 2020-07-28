@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { ErrorService } from 'src/app/services/error/error.service';
 import { ToastController, NavController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -74,33 +74,10 @@ export class DiverEditPage implements OnInit {
   async submit(): Promise<void> {
     // Check if form is valid
     if (this.diverForm.valid) {
-      try {
-        // Set uid if user create his profile
-        let uid: string = this.myProfile ? (await this.authService.getUser().toPromise()).uid : null
-        // Convert the birthdate
-        let birthdate = this.diverForm.value.birthdate ? firebase.firestore.Timestamp.fromDate(new Date(this.diverForm.value.birthdate)) : null
-        // Create the diver
-        let diver$: Observable<Diver> = await this.diverService.create({ email: this.diverForm.value.email, firstname: this.diverForm.value.firstname, lastname: this.diverForm.value.lastname, phone: this.diverForm.value.phone, birthdate: birthdate, uid: uid, id: null })
-        let diver: Diver = await diver$.toPromise()
-          // Display success message
-          ; (await this.toastController.create({
-            message: this.translate.instant('editDiverPage.create-success', { diver: diver }),
-            duration: 5000,
-            color: 'success',
-          })).present()
-        if (this.myProfile) {
-          this.navController.navigateRoot([''])
-        } else {
-          // Go back
-          this.navController.back()
-        }
-      } catch (error) {
-        // Display error toast
-        ; (await this.toastController.create({
-          message: this.translate.instant('editDiverPage.create-fail'),
-          duration: 5000,
-          color: 'danger',
-        })).present()
+      if (this.diverId) {
+        this.edit()
+      } else {
+        this.create()
       }
     } else {
       // Mark all input as touched for displaying all errors
@@ -111,6 +88,71 @@ export class DiverEditPage implements OnInit {
           duration: 5000,
           color: 'danger',
         })).present()
+    }
+  }
+
+  async create() {
+    try {
+      // Set uid if user create his profile
+      let uid: string = this.myProfile ? (await this.authService.getUser().toPromise()).uid : null
+      // Convert the birthdate
+      let birthdate = this.diverForm.value.birthdate ? firebase.firestore.Timestamp.fromDate(new Date(this.diverForm.value.birthdate)) : null
+      // Create the diver
+      let diver$: Observable<Diver> = await this.diverService.create({ email: this.diverForm.value.email, firstname: this.diverForm.value.firstname, lastname: this.diverForm.value.lastname, phone: this.diverForm.value.phone, birthdate: birthdate, uid: uid, id: null })
+      let diver: Diver = await diver$.toPromise()
+        // Display success message
+        ; (await this.toastController.create({
+          message: this.translate.instant('editDiverPage.create-success', { diver: diver }),
+          duration: 5000,
+          color: 'success',
+        })).present()
+      if (this.myProfile) {
+        this.navController.navigateRoot([''])
+      } else {
+        // Go back
+        this.navController.back()
+      }
+    } catch (error) {
+      // Display error toast
+      ; (await this.toastController.create({
+        message: this.translate.instant('editDiverPage.create-fail'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
+    }
+  }
+
+  async edit() {
+    try {
+      // Get only dirty value
+      let dirtyValues: Partial<DiverInterface> = {}
+      for (const controlName of Object.keys(this.diverForm.controls)) {
+        const control: AbstractControl = this.diverForm.controls[controlName]
+        if (control.dirty) {
+          dirtyValues[controlName] = control.value
+        }
+      }
+      // Convert the birthdate
+      if (dirtyValues.birthdate) {
+        dirtyValues.birthdate = dirtyValues.birthdate ? firebase.firestore.Timestamp.fromDate(new Date(this.diverForm.value.birthdate)) : null
+      }
+      let diver$: Observable<Diver> = await this.diverService.update(this.diverId, dirtyValues)
+      let diver: Diver = await diver$.toPromise()
+        // Display success message
+        ; (await this.toastController.create({
+          message: this.translate.instant('editDiverPage.update-success', { diver: diver }),
+          duration: 5000,
+          color: 'success',
+        })).present()
+      // Go back
+      this.navController.back()
+    } catch (error) {
+      // Display error toast
+      ; (await this.toastController.create({
+        message: this.translate.instant('editDiverPage.update-fail'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
     }
   }
 

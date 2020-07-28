@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
@@ -19,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     TranslateModule.forChild(),
   ],
-  declarations: [DiverEditPage]
+  declarations: [DiverEditPage],
+  providers: [DatePipe]
 })
 export class DiverEditPageModule {}

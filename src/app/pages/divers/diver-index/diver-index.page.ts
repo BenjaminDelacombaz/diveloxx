@@ -17,7 +17,7 @@ export class DiverIndexPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.divers$ = this.diverService.getDivers()
+    this.divers$ = this.diverService.getDivers(true)
   }
 
 }

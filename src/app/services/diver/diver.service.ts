@@ -3,6 +3,7 @@ import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore'
 import { map, first, flatMap, filter } from 'rxjs/operators';
 import { Diver, DiverInterface } from 'src/app/models/diver.model';
 import { Observable, of } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,10 @@ export class DiverService {
 
   private docPath: string = '/divers'
 
-  constructor(private angularFireStore: AngularFirestore) { }
+  constructor(
+    private angularFireStore: AngularFirestore,
+    private authService: AuthService,
+  ) { }
 
   getDiver(docId: string) {
     return this.angularFireStore
@@ -51,11 +55,17 @@ export class DiverService {
     return this.getDiver(docId)
   }
 
-  getDivers(): Observable<Diver[]> {
+  getDivers(withoutCurrentUser: boolean = false): Observable<Diver[]> {
     return this.angularFireStore
       .collection<DiverInterface>(this.docPath)
       .snapshotChanges()
-      .pipe(map((divers: DocumentChangeAction<DiverInterface>[]) => divers.map(this.documentToDiver)))
+      .pipe(map((rawDivers: DocumentChangeAction<DiverInterface>[]) => {
+        let divers: Diver[] = rawDivers.map(this.documentToDiver)
+        if (withoutCurrentUser) {
+          divers = divers.filter(diver => diver.uid != this.authService.currentUser.uid)
+        }
+        return divers
+      }))
   }
 
   private documentToDiver(doc: DocumentChangeAction<DiverInterface>) {

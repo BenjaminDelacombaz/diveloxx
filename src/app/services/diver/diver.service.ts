@@ -28,8 +28,7 @@ export class DiverService {
             return new Diver(diverI)
           }
           return null
-        }),
-        first()
+        })
       )
   }
 
@@ -39,20 +38,19 @@ export class DiverService {
       .valueChanges()
       .pipe(
         flatMap(divers => divers.length ? divers : of(null)),
-        map((diver: DiverInterface) => diver ? new Diver(diver) : null),
-        first()
+        map((diver: DiverInterface) => diver ? new Diver(diver) : null)
       )
   }
 
   async create(diverInterface: DiverInterface): Promise<Observable<Diver>> {
     let docId: string = this.angularFireStore.createId()
     await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).set(diverInterface)
-    return this.getDiver(docId)
+    return this.getDiver(docId).pipe(first())
   }
 
   async update(docId: string, diverI: Partial<DiverInterface>): Promise<Observable<Diver>> {
     await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).update(diverI)
-    return this.getDiver(docId)
+    return this.getDiver(docId).pipe(first())
   }
 
   getDivers(withoutCurrentUser: boolean = false): Observable<Diver[]> {

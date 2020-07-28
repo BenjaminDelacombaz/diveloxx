@@ -46,7 +46,9 @@
         "create-success": "{{diver}} a été créé avec succès",
         "create-fail": "Une erreur est survenu lors de la création du plongeur",
         "update-success": "{{diver}} a été modifié avec succès",
-        "update-fail": "Une erreur est survenu lors de la modification du plongeur"
+        "update-fail": "Une erreur est survenu lors de la modification du plongeur",
+        "update-diver": "Modifier un plongeur",
+        "update-profile": "Modifier votre profil"
     },
     "indexDiverPage": {
         "divers": "Plongeurs"

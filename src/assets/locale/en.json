@@ -46,7 +46,9 @@
         "create-success": "{{diver}} was successfully created",
         "create-fail": "An error occurred during the creation of the diver",
         "update-success": "{{diver}} was successfully updated",
-        "update-fail": "An error occurred during the update of the diver"
+        "update-fail": "An error occurred during the update of the diver",
+        "update-diver": "Edit a diver",
+        "update-profile": "Edit your profile"
     },
     "indexDiverPage": {
         "divers": "Divers"

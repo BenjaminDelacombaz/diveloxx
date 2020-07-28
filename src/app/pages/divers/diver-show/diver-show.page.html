@@ -18,7 +18,7 @@
       Nom: {{ diver?.lastname }}<br>
       Email: {{ diver?.email }}<br>
       Téléphone: {{ diver?.phone }}<br>
-      Date de naissance: {{ diver?.birthdate.toDate().toLocaleDateString() }}<br>
+      Date de naissance: {{ diver?.birthdate.toDate() | date }}<br>
     </ion-card-content>
   </ion-card>
 

@@ -19,7 +19,7 @@ export class DiverService {
     private authService: AuthService,
   ) {
     this.authService.getUser().subscribe(user => {
-      this.getDiverByUid(user.uid).subscribe(diver => {this.currentDiver = diver;console.log(diver)})
+      this.getDiverByUid(user.uid).subscribe(diver => this.currentDiver = diver)
     })
   }
 

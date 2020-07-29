@@ -32,4 +32,8 @@ export class Diver implements DiverInterface {
     toString(): string {
         return `${this.firstname} ${this.lastname}`
     }
+
+    canUpdate(obj: Diver): boolean {
+        return obj.owner_id === this.id
+    }
 }

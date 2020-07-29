@@ -60,7 +60,7 @@ export class DiverEditPage implements OnInit {
           firstname: diver.firstname,
           lastname: diver.lastname,
           phone: diver.phone,
-          birthdate: this.datePipe.transform(diver.birthdate.toDate(), 'yyyy-MM-dd'),
+          birthdate: diver.birthdate ? this.datePipe.transform(diver.birthdate.toDate(), 'yyyy-MM-dd') : null,
         })
       })
     } else {

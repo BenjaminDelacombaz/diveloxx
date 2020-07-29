@@ -12,10 +12,16 @@ export class DiverService {
 
   private docPath: string = '/divers'
 
+  public currentDiver: Diver
+
   constructor(
     private angularFireStore: AngularFirestore,
     private authService: AuthService,
-  ) { }
+  ) {
+    this.authService.getUser().subscribe(user => {
+      this.getDiverByUid(user.uid).subscribe(diver => {this.currentDiver = diver;console.log(diver)})
+    })
+  }
 
   getDiver(docId: string) {
     return this.angularFireStore
@@ -35,10 +41,10 @@ export class DiverService {
   getDiverByUid(uid: string): Observable<Diver> {
     return this.angularFireStore
       .collection<Diver>(this.docPath, ref => ref.where('uid', '==', uid).limit(1))
-      .valueChanges()
+      .snapshotChanges()
       .pipe(
-        flatMap(divers => divers.length ? divers : of(null)),
-        map((diver: DiverInterface) => diver ? new Diver(diver) : null)
+        flatMap(docs => docs.length ? docs : of(null)),
+        map(this.documentToDiver)
       )
   }
 

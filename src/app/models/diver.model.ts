@@ -6,6 +6,7 @@ export interface DiverInterface {
     phone: string
     birthdate: firebase.firestore.Timestamp
     uid: string
+    owner_id: string
 }
 export class Diver implements DiverInterface {
     public id: string
@@ -15,6 +16,7 @@ export class Diver implements DiverInterface {
     public phone: string
     public birthdate: firebase.firestore.Timestamp
     public uid: string
+    public owner_id: string
 
     constructor(diver: DiverInterface) {
         this.id = diver.id
@@ -24,6 +26,7 @@ export class Diver implements DiverInterface {
         this.phone = diver.phone
         this.birthdate = diver.birthdate
         this.uid = diver.uid
+        this.owner_id = diver.owner_id
     }
 
     toString(): string {

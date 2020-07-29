@@ -40,16 +40,20 @@ export class DiverService {
 
   getDiverByUid(uid: string): Observable<Diver> {
     return this.angularFireStore
-      .collection<Diver>(this.docPath, ref => ref.where('uid', '==', uid).limit(1))
-      .snapshotChanges()
+      .collection<DiverInterface>(this.docPath, ref => ref.where('uid', '==', uid).limit(1))
+      .valueChanges()
       .pipe(
-        flatMap(docs => docs.length ? docs : of(null)),
-        map(this.documentToDiver)
+        flatMap(divers => divers.length ? divers : of(null)),
+        map(diver => diver ? new Diver(diver) : null)
       )
   }
 
   async create(diverInterface: DiverInterface): Promise<Observable<Diver>> {
     let docId: string = this.angularFireStore.createId()
+    // Set id
+    diverInterface.id = docId
+    // Set owner id
+    diverInterface.owner_id = this.currentDiver ? this.currentDiver.id : docId
     await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).set(diverInterface)
     return this.getDiver(docId).pipe(first())
   }
@@ -62,19 +66,13 @@ export class DiverService {
   getDivers(withoutCurrentUser: boolean = false): Observable<Diver[]> {
     return this.angularFireStore
       .collection<DiverInterface>(this.docPath)
-      .snapshotChanges()
-      .pipe(map((rawDivers: DocumentChangeAction<DiverInterface>[]) => {
-        let divers: Diver[] = rawDivers.map(this.documentToDiver)
+      .valueChanges()
+      .pipe(map((diversI: DiverInterface[]) => {
+        let divers: Diver[] = diversI.map(diverI => new Diver(diverI))
         if (withoutCurrentUser) {
           divers = divers.filter(diver => diver.uid != this.authService.currentUser.uid)
         }
         return divers
       }))
-  }
-
-  private documentToDiver(doc: DocumentChangeAction<DiverInterface>) {
-    let diver: DiverInterface = doc.payload.doc.data()
-    diver.id = doc.payload.doc.id
-    return new Diver(diver)
   }
 }

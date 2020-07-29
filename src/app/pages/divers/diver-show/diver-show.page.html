@@ -14,11 +14,11 @@
     </ion-card-header>
   
     <ion-card-content>
-      Prénom: {{ diver?.firstname }}<br>
-      Nom: {{ diver?.lastname }}<br>
-      Email: {{ diver?.email }}<br>
-      Téléphone: {{ diver?.phone }}<br>
-      Date de naissance: {{ diver?.birthdate.toDate() | date }}<br>
+      <span *ngIf="diver?.firstname">Prénom: {{ diver?.firstname }}<br></span>
+      <span *ngIf="diver?.lastname">Nom: {{ diver?.lastname }}<br></span>
+      <span *ngIf="diver?.email">Email: {{ diver?.email }}<br></span>
+      <span *ngIf="diver?.phone">Téléphone: {{ diver?.phone }}<br></span>
+      <span *ngIf="diver?.birthdate">Date de naissance: {{ diver?.birthdate.toDate() | date }}<br></span>
     </ion-card-content>
   </ion-card>
 

@@ -29,11 +29,7 @@ export class DiverService {
       .valueChanges()
       .pipe(
         map((diverI: DiverInterface) => {
-          if (diverI) {
-            diverI.id = docId
-            return new Diver(diverI)
-          }
-          return null
+          return diverI ? new Diver(diverI) : null
         })
       )
   }

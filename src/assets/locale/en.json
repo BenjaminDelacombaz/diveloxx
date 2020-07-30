@@ -2,7 +2,8 @@
     "search": "Search",
     "tabs": {
         "divers": "Divers",
-        "home": "Home"
+        "home": "Home",
+        "myProfile": "My profile"
     },
     "form": {
         "invalid": "The form is not valid",

@@ -2,7 +2,8 @@
     "search": "Rechercher",
     "tabs": {
         "divers": "Plongeurs",
-        "home": "Accueil"
+        "home": "Accueil",
+        "myProfile": "Mon profil"
     },
     "form": {
         "invalid": "Le formulaire n'est pas valide",

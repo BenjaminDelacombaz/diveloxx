@@ -50,12 +50,12 @@ export class DiverService {
     diverInterface.id = docId
     // Set owner id
     diverInterface.owner_id = this.currentDiver ? this.currentDiver.id : docId
-    await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).set(diverInterface)
+    await this.angularFireStore.doc<DiverInterface>(`${this.docPath}/${docId}`).set(diverInterface)
     return this.getDiver(docId).pipe(first())
   }
 
   async update(docId: string, diverI: Partial<DiverInterface>): Promise<Observable<Diver>> {
-    await this.angularFireStore.doc<Diver>(`${this.docPath}/${docId}`).update(diverI)
+    await this.angularFireStore.doc<DiverInterface>(`${this.docPath}/${docId}`).update(diverI)
     return this.getDiver(docId).pipe(first())
   }
 

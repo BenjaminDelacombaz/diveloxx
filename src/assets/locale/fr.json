@@ -21,7 +21,8 @@
     },
     "guard": {
         "not-auth": "Vous devez être authentifié pour accéder à cette page",
-        "no-profile": "Vous devez créer votre profil de plongeur"
+        "no-profile": "Vous devez créer votre profil de plongeur",
+        "no-access": "Vous ne pouvez pas accèder à cette page"
     },
     "loginPage": {
         "login": "Se connecter",

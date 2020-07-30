@@ -21,7 +21,8 @@
     },
     "guard": {
         "not-auth": "You must be authenticated to access this page",
-        "no-profile": "You need to create your diver profile"
+        "no-profile": "You need to create your diver profile",
+        "no-access": "You cannot access this page"
     },
     "loginPage": {
         "login": "Login",

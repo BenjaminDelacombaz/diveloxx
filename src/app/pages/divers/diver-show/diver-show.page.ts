@@ -14,6 +14,7 @@ export class DiverShowPage implements OnInit {
 
   public diver: Diver
   public diverId: string
+  public canUpdate: boolean = false
 
   constructor(
     private diverService: DiverService,
@@ -22,7 +23,10 @@ export class DiverShowPage implements OnInit {
 
   ngOnInit() {
     this.diverId = this.route.snapshot.paramMap.get('id')
-    this.diverService.getDiver(this.diverId).subscribe(diver => this.diver = diver)
+    this.diverService.getDiver(this.diverId).subscribe(diver => {
+      this.diver = diver
+      this.canUpdate = this.diverService.currentDiver.canUpdate(diver)
+    })
   }
 
 }

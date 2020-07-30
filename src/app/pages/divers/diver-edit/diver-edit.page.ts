@@ -48,6 +48,10 @@ export class DiverEditPage implements OnInit {
     this.myProfile = this.router.url.includes('/my-profile')
     // Get diver id
     this.diverId = this.route.snapshot.paramMap.get('id')
+    // Set the diver id if edit my profile
+    if (this.router.url.includes('/my-profile/edit')) {
+      this.diverId = this.diverService.currentDiver.id
+    }
   }
 
   async ngOnInit() {

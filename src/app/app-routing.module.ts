@@ -48,6 +48,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasProfileGuard, CanUpdateDiverGuard],
     loadChildren: () => import('./pages/divers/diver-edit/diver-edit.module').then( m => m.DiverEditPageModule)
   },
+  {
+    path: 'my-profile',
+    loadChildren: () => import('./pages/my-profile/my-profile-index/my-profile-index.module').then( m => m.MyProfileIndexPageModule)
+  },
+
 
 
 ];

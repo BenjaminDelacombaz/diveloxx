@@ -107,7 +107,7 @@ export class DiverEditPage implements OnInit {
           color: 'success',
         })).present()
       if (this.myProfile) {
-        this.navController.navigateRoot([''])
+        this.router.navigate([''], { replaceUrl: true })
       } else {
         // Go back
         this.navController.back()

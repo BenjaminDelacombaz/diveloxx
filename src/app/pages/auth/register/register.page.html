@@ -40,5 +40,5 @@
     </ion-list>
     <ion-button expand="block" type="submit">{{ 'registerPage.register' | translate }}</ion-button>
   </form>
-  <ion-button expand="block" [routerLink]="['/login']">{{ 'registerPage.alreadyAnAccount' | translate }}</ion-button>
+  <ion-button expand="block" [routerLink]="['/login']" replaceUrl="true">{{ 'registerPage.alreadyAnAccount' | translate }}</ion-button>
 </ion-content>

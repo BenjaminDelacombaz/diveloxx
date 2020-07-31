@@ -29,20 +29,6 @@
       </div>
       <!-- Location item -->
       <ion-item lines="full">
-        <!-- Longitude input item -->
-        <ion-item lines="none">
-          <ion-label position="floating">{{ 'diveSiteEditPage.longitude' | translate }} *</ion-label>
-          <ion-input type="number" formControlName="longitude" required></ion-input>
-        </ion-item>
-        <div class="validation-errors"
-          *ngIf="(diveSiteForm.controls.longitude.dirty || diveSiteForm.controls.longitude.touched) && diveSiteForm.controls.longitude.errors">
-          <ng-container *ngFor="let error of diveSiteForm.controls.longitude.errors | keyvalue">
-            <div class="error-message">
-              <ion-icon name="alert-circle-outline"></ion-icon>
-              {{ errorService.getInputValidationMsg(error.key, error.value) }}
-            </div>
-          </ng-container>
-        </div>
         <!-- Latitude input item -->
         <ion-item lines="none">
           <ion-label position="floating">{{ 'diveSiteEditPage.latitude' | translate }} *</ion-label>
@@ -51,6 +37,20 @@
         <div class="validation-errors"
           *ngIf="(diveSiteForm.controls.latitude.dirty || diveSiteForm.controls.latitude.touched) && diveSiteForm.controls.latitude.errors">
           <ng-container *ngFor="let error of diveSiteForm.controls.latitude.errors | keyvalue">
+            <div class="error-message">
+              <ion-icon name="alert-circle-outline"></ion-icon>
+              {{ errorService.getInputValidationMsg(error.key, error.value) }}
+            </div>
+          </ng-container>
+        </div>
+        <!-- Longitude input item -->
+        <ion-item lines="none">
+          <ion-label position="floating">{{ 'diveSiteEditPage.longitude' | translate }} *</ion-label>
+          <ion-input type="number" formControlName="longitude" required></ion-input>
+        </ion-item>
+        <div class="validation-errors"
+          *ngIf="(diveSiteForm.controls.longitude.dirty || diveSiteForm.controls.longitude.touched) && diveSiteForm.controls.longitude.errors">
+          <ng-container *ngFor="let error of diveSiteForm.controls.longitude.errors | keyvalue">
             <div class="error-message">
               <ion-icon name="alert-circle-outline"></ion-icon>
               {{ errorService.getInputValidationMsg(error.key, error.value) }}

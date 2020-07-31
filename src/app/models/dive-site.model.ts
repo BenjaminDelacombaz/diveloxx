@@ -23,6 +23,7 @@ export class DiveSite implements DiveSiteInterface {
         this.location = diveSite.location
         this.name = diveSite.name
         this.owner_id = diveSite.owner_id
+        this.water_type = diveSite.water_type
     }
 
     toString(): string {

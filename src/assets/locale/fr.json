@@ -1,5 +1,7 @@
 {
     "search": "Rechercher",
+    "ok": "OK",
+    "cancel": "Annuler",
     "tabs": {
         "divers": "Plongeurs",
         "home": "Accueil",
@@ -54,5 +56,13 @@
     },
     "indexDiverPage": {
         "divers": "Plongeurs"
+    },
+    "myProfileIndexPage": {
+        "myProfile": "Mon profil",
+        "editProfile": "Modifier mon profil",
+        "changePassword": "Modifier mon mot de passe",
+        "logOut": "Se déconnecter",
+        "confirmation": "Confirmation",
+        "confirmationPasswordResetMessage": "En confirmant ce message, vous allez recevoir un email pour réinistialiser votre mot de passe. Vous serez ensuite automatiquement déconnecté de l'application."
     }
 }

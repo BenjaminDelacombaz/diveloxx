@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import * as firebase from 'firebase'
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   currentUser: firebase.User
+  currentUser$: Observable<firebase.User>
 
-  constructor(private angularFireAuth: AngularFireAuth) {
+  constructor(private angularFireAuth: AngularFireAuth, private translateService: TranslateService) {
+    this.currentUser$ = this.angularFireAuth.user
     this.angularFireAuth.user.subscribe(user => this.currentUser = user)
   }
 
@@ -32,5 +36,11 @@ export class AuthService {
 
   getUser(): Observable<firebase.User> {
     return this.angularFireAuth.user.pipe(first())
+  }
+
+  async sendPasswordReset() {
+    // Doing like that because with angularfire it doesn't work
+    firebase.auth().languageCode = this.translateService.defaultLang
+    this.angularFireAuth.sendPasswordResetEmail(this.currentUser.email)
   }
 }

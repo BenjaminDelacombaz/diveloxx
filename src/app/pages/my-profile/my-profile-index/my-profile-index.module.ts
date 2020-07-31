@@ -8,12 +8,15 @@ import { MyProfileIndexPageRoutingModule } from './my-profile-index-routing.modu
 
 import { MyProfileIndexPage } from './my-profile-index.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MyProfileIndexPageRoutingModule
+    MyProfileIndexPageRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [MyProfileIndexPage]
 })

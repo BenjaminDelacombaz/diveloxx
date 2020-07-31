@@ -6,6 +6,8 @@ import { DiveSiteService } from 'src/app/services/dive-site/dive-site.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, NavController } from '@ionic/angular';
 import { ErrorService } from 'src/app/services/error/error.service';
+import * as firebase from 'firebase'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dive-site-edit',
@@ -56,6 +58,51 @@ export class DiveSiteEditPage implements OnInit {
           description: diveSite.description,
         })
       })
+    }
+  }
+
+  async submit(): Promise<void> {
+    // Check if form is valid
+    if (this.diveSiteForm.valid) {
+      if (this.diveSiteId) {
+        // Edit
+      } else {
+        this.create()
+      }
+    } else {
+      // Mark all input as touched for displaying all errors
+      this.diveSiteForm.markAllAsTouched()
+        // Display error toast
+        ; (await this.toastController.create({
+          message: this.translate.instant('form.invalid'),
+          duration: 5000,
+          color: 'danger',
+        })).present()
+    }
+  }
+
+  async create() {
+    try {
+      // Convert the longitude / latitude
+      let location = new firebase.firestore.GeoPoint(this.diveSiteForm.value.latitude, this.diveSiteForm.value.longitude)
+      // Create the dive site
+      let diveSite$: Observable<DiveSite> = await this.diveSiteService.create({ name: this.diveSiteForm.value.name, location: location, difficulty: Number(this.diveSiteForm.value.difficulty), water_type: Number(this.diveSiteForm.value.water_type), description: this.diveSiteForm.value.description, id: null, owner_id: null })
+      let diveSite: DiveSite = await diveSite$.toPromise()
+        // Display success message
+        ; (await this.toastController.create({
+          message: this.translate.instant('diveSiteEditPage.create-success', { diveSite: diveSite }),
+          duration: 5000,
+          color: 'success',
+        })).present()
+      // Go back
+      this.navController.back()
+    } catch (error) {
+      // Display error toast
+      ; (await this.toastController.create({
+        message: this.translate.instant('diveSiteEditPage.create-fail'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
     }
   }
 }

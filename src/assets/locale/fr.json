@@ -90,6 +90,8 @@
         "waterType": "Type d'eau",
         "description": "Description",
         "longitude": "Longitude",
-        "latitude": "Latitude"
+        "latitude": "Latitude",
+        "create-success": "{{diveSite}} a été créé avec succès",
+        "create-fail": "Une erreur est survenu lors de la création du site de plongée"
     }
 }

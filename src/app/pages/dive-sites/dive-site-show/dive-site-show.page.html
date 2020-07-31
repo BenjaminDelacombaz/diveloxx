@@ -10,15 +10,23 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Détails</ion-card-title>
+      <ion-card-title>{{ 'diveSiteShowPage.details' | translate }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      <span *ngIf="diveSite?.name">{{ 'diveSiteShowPage.name' | translate }}: {{ diveSite?.name }}<br></span>
       <span *ngIf="diveSite?.location">{{ 'diveSiteShowPage.location' | translate }}: [{{ diveSite?.location.latitude }}° {{ 'northSmall' | translate }}, {{ diveSite?.location.longitude }}° {{ 'westSmall' | translate }}]<br></span>
       <span *ngIf="diveSite?.difficulty">{{ 'diveSiteShowPage.difficulty' | translate }}: {{ 'difficulties.' + diveSiteService.difficultyValueToName(diveSite?.difficulty) | translate }}<br></span>
       <span *ngIf="diveSite?.water_type">{{ 'diveSiteShowPage.waterType' | translate }}: {{ 'waterTypes.' + diveSiteService.waterTypeValueToName(diveSite?.water_type) | translate }}<br></span>
-      <span *ngIf="diveSite?.description">{{ 'diveSiteShowPage.description' | translate }}: {{ diveSite?.description }}<br></span>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ 'diveSiteShowPage.description' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p class="with-line-breaks">{{ diveSite?.description }}</p>
     </ion-card-content>
   </ion-card>
 

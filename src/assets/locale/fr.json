@@ -28,6 +28,19 @@
         "no-profile": "Vous devez créer votre profil de plongeur",
         "no-access": "Vous ne pouvez pas accèder à cette page"
     },
+    "difficulties": {
+        "veryEasy": "Très facile",
+        "easy": "Facile",
+        "medium": "Moyen",
+        "hard": "Difficile",
+        "veryHard": "Très difficile"
+    },
+    "waterTypes":{
+        "sea": "Mer",
+        "lake": "Lac",
+        "cave": "Grotte",
+        "river": "Rivière"
+    },
     "loginPage": {
         "login": "Se connecter",
         "email": "Email",
@@ -68,5 +81,15 @@
     },
     "diveSitesIndexPage": {
         "diveSites": "Sites de plongée"
+    },
+    "diveSiteEditPage": {
+        "createDiveSite": "Créer un site de plongée",
+        "name": "Nom",
+        "location": "Emplacement",
+        "difficulty": "Difficulté",
+        "waterType": "Type d'eau",
+        "description": "Description",
+        "longitude": "Longitude",
+        "latitude": "Latitude"
     }
 }

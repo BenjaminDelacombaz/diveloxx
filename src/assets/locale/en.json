@@ -28,6 +28,19 @@
         "no-profile": "You need to create your diver profile",
         "no-access": "You cannot access this page"
     },
+    "difficulties": {
+        "veryEasy": "Very easy",
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "hard",
+        "veryHard": "Very hard"
+    },
+    "waterTypes":{
+        "sea": "Sea",
+        "lake": "Lake",
+        "cave": "Cave",
+        "river": "River"
+    },
     "loginPage": {
         "login": "Login",
         "email": "Email",
@@ -68,5 +81,15 @@
     },
     "diveSitesIndexPage": {
         "diveSites": "Dive sites"
+    },
+    "diveSitesEditPage": {
+        "createDiveSite": "Create a dive site",
+        "name": "Name",
+        "location": "Location",
+        "difficulty": "Difficulty",
+        "waterType": "Water type",
+        "description": "Description",
+        "longitude": "Longitude",
+        "latitude": "Latitude"
     }
 }

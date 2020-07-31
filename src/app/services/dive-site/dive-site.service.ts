@@ -12,6 +12,22 @@ export class DiveSiteService {
 
   private docPath: string = '/dive_sites'
 
+  public difficulties: Array<{name, value}> = [
+    { name: 'veryEasy', value:'1' },
+    { name: 'easy', value:'2' },
+    { name: 'medium', value:'3' },
+    { name: 'hard', value:'4' },
+    { name: 'veryHard', value:'5' },
+  ]
+
+  public waterTypes: Array<{name, value}> = [
+    { name: 'sea', value: '1' },
+    { name: 'lake', value: '2' },
+    { name: 'cave', value: '3' },
+    { name: 'river', value: '4' },
+  ]
+
+
   constructor(
     private angularFirestore: AngularFirestore,
     private diverService: DiverService,

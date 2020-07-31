@@ -5,7 +5,8 @@
     "tabs": {
         "divers": "Plongeurs",
         "home": "Accueil",
-        "myProfile": "Mon profil"
+        "myProfile": "Mon profil",
+        "diveSites": "Sites"
     },
     "form": {
         "invalid": "Le formulaire n'est pas valide",

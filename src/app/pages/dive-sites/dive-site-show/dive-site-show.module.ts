@@ -8,7 +8,8 @@ import { DiveSiteShowPageRoutingModule } from './dive-site-show-routing.module';
 
 import { DiveSiteShowPage } from './dive-site-show.page';
 
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     IonicModule,
     DiveSiteShowPageRoutingModule,
     TranslateModule.forChild(),
+    GoogleMapsModule,
   ],
   declarations: [DiveSiteShowPage]
 })

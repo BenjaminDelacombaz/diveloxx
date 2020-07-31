@@ -14,6 +14,7 @@ export class DiveSiteShowPage implements OnInit {
   public diveSite: DiveSite
   public diveSiteId: string
   public canUpdate: boolean = false
+  public diveSiteGoogleMapLocation: google.maps.LatLng
 
   constructor(
     private diverService: DiverService,
@@ -26,6 +27,7 @@ export class DiveSiteShowPage implements OnInit {
     this.diveSiteService.getDiveSite(this.diveSiteId).subscribe(diveSite => {
       this.diveSite = diveSite
       this.canUpdate = this.diverService.currentDiver.canUpdate(diveSite)
+      this.diveSiteGoogleMapLocation = new google.maps.LatLng(diveSite.location.latitude, diveSite.location.longitude)
     })
   }
 

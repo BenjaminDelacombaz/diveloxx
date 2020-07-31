@@ -57,6 +57,14 @@
     "indexDiverPage": {
         "divers": "Divers"
     },
+    "diverShowPage": {
+        "details": "Details",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "email": "Email",
+        "phone": "Phone",
+        "birthdate": "Birthdate"
+    },
     "myProfileIndexPage": {
         "myProfile": "My profile",
         "editProfile": "Edit my profile",

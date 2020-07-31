@@ -57,6 +57,14 @@
     "indexDiverPage": {
         "divers": "Plongeurs"
     },
+    "diverShowPage": {
+        "details": "Détails",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "birthdate": "Date de naissance"
+    },
     "myProfileIndexPage": {
         "myProfile": "Mon profil",
         "editProfile": "Modifier mon profil",

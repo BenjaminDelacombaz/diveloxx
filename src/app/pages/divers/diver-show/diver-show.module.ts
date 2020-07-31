@@ -8,12 +8,15 @@ import { DiverShowPageRoutingModule } from './diver-show-routing.module';
 
 import { DiverShowPage } from './diver-show.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DiverShowPageRoutingModule
+    DiverShowPageRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [DiverShowPage]
 })

@@ -10,15 +10,15 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Détails</ion-card-title>
+      <ion-card-title>{{ 'diverShowPage.details' | translate }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      <span *ngIf="diver?.firstname">Prénom: {{ diver?.firstname }}<br></span>
-      <span *ngIf="diver?.lastname">Nom: {{ diver?.lastname }}<br></span>
-      <span *ngIf="diver?.email">Email: {{ diver?.email }}<br></span>
-      <span *ngIf="diver?.phone">Téléphone: {{ diver?.phone }}<br></span>
-      <span *ngIf="diver?.birthdate">Date de naissance: {{ diver?.birthdate.toDate() | date }}<br></span>
+      <span *ngIf="diver?.firstname">{{ 'diverShowPage.firstname' | translate }}: {{ diver?.firstname }}<br></span>
+      <span *ngIf="diver?.lastname">{{ 'diverShowPage.lastname' | translate }}: {{ diver?.lastname }}<br></span>
+      <span *ngIf="diver?.email">{{ 'diverShowPage.email' | translate }}: {{ diver?.email }}<br></span>
+      <span *ngIf="diver?.phone">{{ 'diverShowPage.phone' | translate }}: {{ diver?.phone }}<br></span>
+      <span *ngIf="diver?.birthdate">{{ 'diverShowPage.birthdate' | translate }}: {{ diver?.birthdate.toDate() | date }}<br></span>
     </ion-card-content>
   </ion-card>
 

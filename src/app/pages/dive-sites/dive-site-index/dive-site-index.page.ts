@@ -18,8 +18,6 @@ export class DiveSiteIndexPage implements OnInit {
 
   ngOnInit() {
     this.diveSites$ = this.diveSiteService.getDiveSites()
-
-    this.diveSites$.subscribe(console.log)
   }
 
 }

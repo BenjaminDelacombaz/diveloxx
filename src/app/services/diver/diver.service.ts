@@ -18,8 +18,12 @@ export class DiverService {
     private angularFireStore: AngularFirestore,
     private authService: AuthService,
   ) {
-    this.authService.getUser().subscribe(user => {
-      this.getDiverByUid(user.uid).subscribe(diver => this.currentDiver = diver)
+    this.authService.currentUser$.subscribe(user => {
+      if (user) {
+        this.getDiverByUid(user.uid).subscribe(diver => this.currentDiver = diver)
+      } else {
+        this.currentDiver = null
+      }
     })
   }
 

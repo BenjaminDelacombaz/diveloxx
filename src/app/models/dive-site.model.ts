@@ -4,7 +4,7 @@ export interface DiveSiteInterface {
     difficulty: number
     location: firebase.firestore.GeoPoint
     name: string
-    water_type: string
+    water_type: number
     owner_id: string
 }
 export class DiveSite implements DiveSiteInterface {
@@ -13,7 +13,7 @@ export class DiveSite implements DiveSiteInterface {
     public difficulty: number
     public location: firebase.firestore.GeoPoint
     public name: string
-    public water_type: string
+    public water_type: number
     public owner_id: string
 
     constructor(diveSite: DiveSiteInterface) {

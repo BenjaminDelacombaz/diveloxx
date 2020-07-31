@@ -94,7 +94,9 @@
         "longitude": "Longitude",
         "latitude": "Latitude",
         "create-success": "{{diveSite}} a été créé avec succès",
-        "create-fail": "Une erreur est survenu lors de la création du site de plongée"
+        "create-fail": "Une erreur est survenu lors de la création du site de plongée",
+        "update-success": "{{diveSite}} a été modifié avec succès",
+        "update-fail": "Une erreur est survenu lors de la modification du site de plongée"
     },
     "diveSiteShowPage": {
         "details": "Détails",

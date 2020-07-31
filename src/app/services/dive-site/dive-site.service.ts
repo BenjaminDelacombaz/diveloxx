@@ -63,6 +63,11 @@ export class DiveSiteService {
     return this.getDiveSite(docId).pipe(first())
   }
 
+  async update(docId: string, diveSiteI: Partial<DiveSiteInterface>): Promise<Observable<DiveSite>> {
+    await this.angularFirestore.doc<DiveSiteInterface>(`${this.docPath}/${docId}`).update(diveSiteI)
+    return this.getDiveSite(docId).pipe(first())
+  }
+
   difficultyValueToName(value: number): string {
     let filteredDifficulties = this.difficulties.filter(difficulty => difficulty.value === value)
     return filteredDifficulties[0].name

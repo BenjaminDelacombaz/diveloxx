@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DiveSite } from 'src/app/models/dive-site.model';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { DiveSite, DiveSiteInterface } from 'src/app/models/dive-site.model';
 import { TranslateService } from '@ngx-translate/core';
 import { DiveSiteService } from 'src/app/services/dive-site/dive-site.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -65,7 +65,7 @@ export class DiveSiteEditPage implements OnInit {
     // Check if form is valid
     if (this.diveSiteForm.valid) {
       if (this.diveSiteId) {
-        // Edit
+        this.edit()
       } else {
         this.create()
       }
@@ -100,6 +100,42 @@ export class DiveSiteEditPage implements OnInit {
       // Display error toast
       ; (await this.toastController.create({
         message: this.translate.instant('diveSiteEditPage.create-fail'),
+        duration: 5000,
+        color: 'danger',
+      })).present()
+    }
+  }
+  
+  async edit() {
+    try {
+      // Get only dirty value
+      let dirtyValues: Partial<DiveSiteInterface> = {}
+      for (const controlName of Object.keys(this.diveSiteForm.controls)) {
+        const control: AbstractControl = this.diveSiteForm.controls[controlName]
+        if (control.dirty) {
+          dirtyValues[controlName] = control.value
+        }
+      }
+      // Convert the latitude / longitude
+      if (this.diveSiteForm.controls.latitude.dirty || this.diveSiteForm.controls.longitude.dirty) {
+        dirtyValues.location = new firebase.firestore.GeoPoint(this.diveSiteForm.value.latitude, this.diveSiteForm.value.longitude)
+        delete dirtyValues['longitude']
+        delete dirtyValues['latitude']
+      }
+      let diveSite$: Observable<DiveSite> = await this.diveSiteService.update(this.diveSiteId, dirtyValues)
+      let diveSite: DiveSite = await diveSite$.toPromise()
+        // Display success message
+        ; (await this.toastController.create({
+          message: this.translate.instant('diveSiteEditPage.update-success', { diveSite: diveSite }),
+          duration: 5000,
+          color: 'success',
+        })).present()
+      // Go back
+      this.navController.back()
+    } catch (error) {
+      // Display error toast
+      ; (await this.toastController.create({
+        message: this.translate.instant('diveSiteEditPage.update-fail'),
         duration: 5000,
         color: 'danger',
       })).present()

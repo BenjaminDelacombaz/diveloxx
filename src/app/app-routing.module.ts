@@ -63,10 +63,10 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/dive-sites/dive-site-index/dive-site-index.module').then( m => m.DiveSiteIndexPageModule)
   },
-
-
-
-
+  {
+    path: 'dive-sites/create',
+    loadChildren: () => import('./pages/dive-sites/dive-site-edit/dive-site-edit.module').then( m => m.DiveSiteEditPageModule)
+  },
 ];
 
 @NgModule({

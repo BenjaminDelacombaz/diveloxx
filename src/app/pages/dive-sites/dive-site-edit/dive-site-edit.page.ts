@@ -33,8 +33,8 @@ export class DiveSiteEditPage implements OnInit {
     // Init form
     this.diveSiteForm = this.formBuilder.group({
       name: ['', Validators.required],
-      longitude: ['', Validators.required],
-      latitude: ['', Validators.required],
+      longitude: ['', [Validators.required, Validators.min(-180), Validators.max(180)]],
+      latitude: ['',[Validators.required, Validators.min(-90), Validators.max(90)]],
       difficulty: ['', Validators.required],
       water_type: ['', Validators.required],
       description: ['', Validators.required],

@@ -1,4 +1,6 @@
 {
+    "northSmall": "N",
+    "westSmall": "E",
     "search": "Rechercher",
     "ok": "OK",
     "cancel": "Annuler",
@@ -93,5 +95,13 @@
         "latitude": "Latitude",
         "create-success": "{{diveSite}} a été créé avec succès",
         "create-fail": "Une erreur est survenu lors de la création du site de plongée"
+    },
+    "diveSiteShowPage": {
+        "details": "Détails",
+        "name": "Nom",
+        "location": "Emplacement",
+        "difficulty": "Difficulté",
+        "waterType": "Type d'eau",
+        "description": "Description"
     }
 }

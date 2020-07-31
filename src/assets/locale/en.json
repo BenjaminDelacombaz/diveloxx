@@ -1,4 +1,6 @@
 {
+    "northSmall": "N",
+    "westSmall": "W",
     "search": "Search",
     "ok": "OK",
     "cancel": "Cancel",
@@ -93,5 +95,13 @@
         "latitude": "Latitude",
         "create-success": "{{diveSite}} was successfully created",
         "create-fail": "An error occurred during the creation of the dive site"
+    },
+    "diveSiteShowPage": {
+        "details": "Details",
+        "name": "Name",
+        "location": "Location",
+        "difficulty": "Difficulty",
+        "waterType": "Water type",
+        "description": "Description"
     }
 }

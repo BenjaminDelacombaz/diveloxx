@@ -8,12 +8,15 @@ import { DiveSiteShowPageRoutingModule } from './dive-site-show-routing.module';
 
 import { DiveSiteShowPage } from './dive-site-show.page';
 
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DiveSiteShowPageRoutingModule
+    DiveSiteShowPageRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [DiveSiteShowPage]
 })

@@ -65,5 +65,8 @@
         "logOut": "Se déconnecter",
         "confirmation": "Confirmation",
         "confirmationPasswordResetMessage": "En confirmant ce message, vous allez recevoir un email pour réinistialiser votre mot de passe. Vous serez ensuite automatiquement déconnecté de l'application."
+    },
+    "diveSitesIndexPage": {
+        "diveSites": "Sites de plongée"
     }
 }

@@ -65,5 +65,8 @@
         "logOut": "Log out",
         "confirmation": "Confirmation",
         "confirmationPasswordResetMessage": "By confirming this message, you will receive an email to reset your password. You will then be automatically logged out of the application."
+    },
+    "diveSitesIndexPage": {
+        "diveSites": "Dive sites"
     }
 }

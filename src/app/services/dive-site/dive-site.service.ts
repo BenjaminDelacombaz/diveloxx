@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DiveSiteService {
 
-  private docPath: string = '/dive-sites'
+  private docPath: string = '/dive_sites'
 
   constructor(
     private angularFirestore: AngularFirestore,

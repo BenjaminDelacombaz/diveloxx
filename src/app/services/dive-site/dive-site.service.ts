@@ -13,18 +13,18 @@ export class DiveSiteService {
   private docPath: string = '/dive_sites'
 
   public difficulties: Array<{name, value}> = [
-    { name: 'veryEasy', value:'1' },
-    { name: 'easy', value:'2' },
-    { name: 'medium', value:'3' },
-    { name: 'hard', value:'4' },
-    { name: 'veryHard', value:'5' },
+    { name: 'veryEasy', value: 1 },
+    { name: 'easy', value: 2 },
+    { name: 'medium', value: 3 },
+    { name: 'hard', value: 4 },
+    { name: 'veryHard', value: 5 },
   ]
 
   public waterTypes: Array<{name, value}> = [
-    { name: 'sea', value: '1' },
-    { name: 'lake', value: '2' },
-    { name: 'cave', value: '3' },
-    { name: 'river', value: '4' },
+    { name: 'sea', value: 1 },
+    { name: 'lake', value: 2 },
+    { name: 'cave', value: 3 },
+    { name: 'river', value: 4 },
   ]
 
 
@@ -61,5 +61,15 @@ export class DiveSiteService {
     diveSiteI.owner_id = this.diverService.currentDiver.id
     await this.angularFirestore.doc<DiveSiteInterface>(`${this.docPath}/${docId}`).set(diveSiteI)
     return this.getDiveSite(docId).pipe(first())
+  }
+
+  difficultyValueToName(value: number): string {
+    let filteredDifficulties = this.difficulties.filter(difficulty => difficulty.value === value)
+    return filteredDifficulties[0].name
+  }
+
+  waterTypeValueToName(value: number): string {
+    let filteredWaterTypes = this.waterTypes.filter(waterType => waterType.value === value)
+    return filteredWaterTypes[0].name
   }
 }

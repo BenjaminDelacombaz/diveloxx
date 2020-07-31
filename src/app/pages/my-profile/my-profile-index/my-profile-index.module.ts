@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DiverIndexPageRoutingModule } from './diver-index-routing.module';
+import { MyProfileIndexPageRoutingModule } from './my-profile-index-routing.module';
 
-import { DiverIndexPage } from './diver-index.page';
+import { MyProfileIndexPage } from './my-profile-index.page';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,9 +15,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    DiverIndexPageRoutingModule,
+    MyProfileIndexPageRoutingModule,
     TranslateModule.forChild(),
   ],
-  declarations: [DiverIndexPage]
+  declarations: [MyProfileIndexPage]
 })
-export class DiverIndexPageModule {}
+export class MyProfileIndexPageModule {}

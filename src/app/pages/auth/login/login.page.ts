@@ -41,7 +41,7 @@ export class LoginPage {
         // Login the user
         await this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
         // Go to home
-        this.router.navigate([''])
+        this.router.navigate([''], { replaceUrl: true })
       } catch (error) {
         // Display error toast
         ;(await this.toastController.create({

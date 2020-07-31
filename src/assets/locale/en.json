@@ -1,7 +1,11 @@
 {
+    "search": "Search",
+    "ok": "OK",
+    "cancel": "Cancel",
     "tabs": {
         "divers": "Divers",
-        "home": "Home"
+        "home": "Home",
+        "myProfile": "My profile"
     },
     "form": {
         "invalid": "The form is not valid",
@@ -20,7 +24,8 @@
     },
     "guard": {
         "not-auth": "You must be authenticated to access this page",
-        "no-profile": "You need to create your diver profile"
+        "no-profile": "You need to create your diver profile",
+        "no-access": "You cannot access this page"
     },
     "loginPage": {
         "login": "Login",
@@ -43,6 +48,21 @@
         "create-diver": "Create a diver",
         "create-profile": "Create your profile",
         "create-success": "{{diver}} was successfully created",
-        "create-fail": "An error occurred during the creation of the diver"
+        "create-fail": "An error occurred during the creation of the diver",
+        "update-success": "{{diver}} was successfully updated",
+        "update-fail": "An error occurred during the update of the diver",
+        "update-diver": "Edit a diver",
+        "update-profile": "Edit your profile"
+    },
+    "indexDiverPage": {
+        "divers": "Divers"
+    },
+    "myProfileIndexPage": {
+        "myProfile": "My profile",
+        "editProfile": "Edit my profile",
+        "changePassword": "Change my password",
+        "logOut": "Log out",
+        "confirmation": "Confirmation",
+        "confirmationPasswordResetMessage": "By confirming this message, you will receive an email to reset your password. You will then be automatically logged out of the application."
     }
 }

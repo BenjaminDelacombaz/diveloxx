@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'myProfileIndexPage.myProfile' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6">
+        <ion-card class="centered-content" [routerLink]="['/my-profile/edit']">
+          <ion-icon name="person-outline" class="giant"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>{{ 'myProfileIndexPage.editProfile' | translate }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="centered-content" (click)="changePassword()">
+          <ion-icon name="key-outline" class="giant"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>{{ 'myProfileIndexPage.changePassword' | translate }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card class="centered-content" (click)="logOut()">
+          <ion-icon name="exit-outline" class="giant"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>{{ 'myProfileIndexPage.logOut' | translate }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

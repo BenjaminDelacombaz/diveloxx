@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ diver }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Détails</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <span *ngIf="diver?.firstname">Prénom: {{ diver?.firstname }}<br></span>
+      <span *ngIf="diver?.lastname">Nom: {{ diver?.lastname }}<br></span>
+      <span *ngIf="diver?.email">Email: {{ diver?.email }}<br></span>
+      <span *ngIf="diver?.phone">Téléphone: {{ diver?.phone }}<br></span>
+      <span *ngIf="diver?.birthdate">Date de naissance: {{ diver?.birthdate.toDate() | date }}<br></span>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="canUpdate">
+    <ion-fab-button [routerLink]="['/divers', diverId, 'edit']">
+      <ion-icon name="pencil"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

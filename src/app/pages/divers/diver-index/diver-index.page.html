@@ -1,9 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>diver-index</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'indexDiverPage.divers' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item lines="full" *ngFor="let diver of (divers$ | async)" [routerLink]="['/divers', diver.id]" detail>
+      <ion-label>
+        <h2>{{ diver }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/divers/create']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

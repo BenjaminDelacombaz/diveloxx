@@ -1,7 +1,11 @@
 {
+    "search": "Rechercher",
+    "ok": "OK",
+    "cancel": "Annuler",
     "tabs": {
         "divers": "Plongeurs",
-        "home": "Accueil"
+        "home": "Accueil",
+        "myProfile": "Mon profil"
     },
     "form": {
         "invalid": "Le formulaire n'est pas valide",
@@ -20,7 +24,8 @@
     },
     "guard": {
         "not-auth": "Vous devez être authentifié pour accéder à cette page",
-        "no-profile": "Vous devez créer votre profil de plongeur"
+        "no-profile": "Vous devez créer votre profil de plongeur",
+        "no-access": "Vous ne pouvez pas accèder à cette page"
     },
     "loginPage": {
         "login": "Se connecter",
@@ -43,6 +48,21 @@
         "create-diver": "Créer un plongeur",
         "create-profile": "Créer votre profil",
         "create-success": "{{diver}} a été créé avec succès",
-        "create-fail": "Une erreur est survenu lors de la création du plongeur"
+        "create-fail": "Une erreur est survenu lors de la création du plongeur",
+        "update-success": "{{diver}} a été modifié avec succès",
+        "update-fail": "Une erreur est survenu lors de la modification du plongeur",
+        "update-diver": "Modifier un plongeur",
+        "update-profile": "Modifier votre profil"
+    },
+    "indexDiverPage": {
+        "divers": "Plongeurs"
+    },
+    "myProfileIndexPage": {
+        "myProfile": "Mon profil",
+        "editProfile": "Modifier mon profil",
+        "changePassword": "Modifier mon mot de passe",
+        "logOut": "Se déconnecter",
+        "confirmation": "Confirmation",
+        "confirmationPasswordResetMessage": "En confirmant ce message, vous allez recevoir un email pour réinistialiser votre mot de passe. Vous serez ensuite automatiquement déconnecté de l'application."
     }
 }

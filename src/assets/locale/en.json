@@ -4,6 +4,7 @@
     "search": "Search",
     "ok": "OK",
     "cancel": "Cancel",
+    "close": "Close",
     "tabs": {
         "divers": "Divers",
         "home": "Home",
@@ -105,5 +106,8 @@
         "difficulty": "Difficulty",
         "waterType": "Water type",
         "description": "Description"
+    },
+    "diveSiteSelectLocationMapModalComponent": {
+        "siteLocation": "Site location"
     }
 }

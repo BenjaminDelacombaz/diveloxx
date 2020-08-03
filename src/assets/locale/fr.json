@@ -4,6 +4,7 @@
     "search": "Rechercher",
     "ok": "OK",
     "cancel": "Annuler",
+    "close": "Fermer",
     "tabs": {
         "divers": "Plongeurs",
         "home": "Accueil",
@@ -105,5 +106,8 @@
         "difficulty": "Difficulté",
         "waterType": "Type d'eau",
         "description": "Description"
+    },
+    "diveSiteSelectLocationMapModalComponent": {
+        "siteLocation": "Emplacement du site"
     }
 }

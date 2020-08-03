@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span *ngIf="!diveSiteId">{{ 'diveSiteEditPage.createDiveSite' | translate }}</span>
+      <span *ngIf="diveSiteId">{{ 'diveSiteEditPage.updateDiveSite' | translate }}</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="diveSiteForm" (ngSubmit)="submit()">
+    <ion-list>
+      <!-- Name input item -->
+      <ion-item>
+        <ion-label position="floating">{{ 'diveSiteEditPage.name' | translate }} *</ion-label>
+        <ion-input type="text" formControlName="name" required></ion-input>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diveSiteForm.controls.name.dirty || diveSiteForm.controls.name.touched) && diveSiteForm.controls.name.errors">
+        <ng-container *ngFor="let error of diveSiteForm.controls.name.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Location item -->
+      <ion-item lines="full">
+        <!-- Latitude input item -->
+        <ion-item lines="none">
+          <ion-label position="floating">{{ 'diveSiteEditPage.latitude' | translate }} *</ion-label>
+          <ion-input type="number" formControlName="latitude" required></ion-input>
+        </ion-item>
+        <div class="validation-errors"
+          *ngIf="(diveSiteForm.controls.latitude.dirty || diveSiteForm.controls.latitude.touched) && diveSiteForm.controls.latitude.errors">
+          <ng-container *ngFor="let error of diveSiteForm.controls.latitude.errors | keyvalue">
+            <div class="error-message">
+              <ion-icon name="alert-circle-outline"></ion-icon>
+              {{ errorService.getInputValidationMsg(error.key, error.value) }}
+            </div>
+          </ng-container>
+        </div>
+        <!-- Longitude input item -->
+        <ion-item lines="none">
+          <ion-label position="floating">{{ 'diveSiteEditPage.longitude' | translate }} *</ion-label>
+          <ion-input type="number" formControlName="longitude" required></ion-input>
+        </ion-item>
+        <div class="validation-errors"
+          *ngIf="(diveSiteForm.controls.longitude.dirty || diveSiteForm.controls.longitude.touched) && diveSiteForm.controls.longitude.errors">
+          <ng-container *ngFor="let error of diveSiteForm.controls.longitude.errors | keyvalue">
+            <div class="error-message">
+              <ion-icon name="alert-circle-outline"></ion-icon>
+              {{ errorService.getInputValidationMsg(error.key, error.value) }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-button slot="end" (click)="presentMapModal()">
+          <ion-icon slot="icon-only" name="map"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <!-- Difficulty input item -->
+      <ion-item>
+        <ion-label position="floating">{{ 'diveSiteEditPage.difficulty' | translate }} *</ion-label>
+        <ion-select formControlName="difficulty" required>
+          <ion-select-option *ngFor="let difficulty of diveSiteService.difficulties" [value]="difficulty.value">
+            {{ 'difficulties.' + difficulty.name | translate }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diveSiteForm.controls.difficulty.dirty || diveSiteForm.controls.difficulty.touched) && diveSiteForm.controls.difficulty.errors">
+        <ng-container *ngFor="let error of diveSiteForm.controls.difficulty.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Water type input item -->
+      <ion-item>
+        <ion-label position="floating">{{ 'diveSiteEditPage.waterType' | translate }} *</ion-label>
+        <ion-select formControlName="water_type" required>
+          <ion-select-option *ngFor="let waterType of diveSiteService.waterTypes" [value]="waterType.value">
+            {{ 'waterTypes.' + waterType.name | translate }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diveSiteForm.controls.water_type.dirty || diveSiteForm.controls.water_type.touched) && diveSiteForm.controls.water_type.errors">
+        <ng-container *ngFor="let error of diveSiteForm.controls.water_type.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+      <!-- Description input item -->
+      <ion-item>
+        <ion-label position="floating">{{ 'diveSiteEditPage.description' | translate }} *</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <div class="validation-errors"
+        *ngIf="(diveSiteForm.controls.description.dirty || diveSiteForm.controls.description.touched) && diveSiteForm.controls.description.errors">
+        <ng-container *ngFor="let error of diveSiteForm.controls.description.errors | keyvalue">
+          <div class="error-message">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ errorService.getInputValidationMsg(error.key, error.value) }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+    <button type="submit" hidden></button>
+  </form>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="submit()">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

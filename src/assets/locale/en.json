@@ -1,11 +1,15 @@
 {
+    "northSmall": "N",
+    "westSmall": "W",
     "search": "Search",
     "ok": "OK",
     "cancel": "Cancel",
+    "close": "Close",
     "tabs": {
         "divers": "Divers",
         "home": "Home",
-        "myProfile": "My profile"
+        "myProfile": "My profile",
+        "diveSites": "Sites"
     },
     "form": {
         "invalid": "The form is not valid",
@@ -26,6 +30,19 @@
         "not-auth": "You must be authenticated to access this page",
         "no-profile": "You need to create your diver profile",
         "no-access": "You cannot access this page"
+    },
+    "difficulties": {
+        "veryEasy": "Very easy",
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "hard",
+        "veryHard": "Very hard"
+    },
+    "waterTypes":{
+        "sea": "Sea",
+        "lake": "Lake",
+        "cave": "Cave",
+        "river": "River"
     },
     "loginPage": {
         "login": "Login",
@@ -72,5 +89,34 @@
         "logOut": "Log out",
         "confirmation": "Confirmation",
         "confirmationPasswordResetMessage": "By confirming this message, you will receive an email to reset your password. You will then be automatically logged out of the application."
+    },
+    "diveSitesIndexPage": {
+        "diveSites": "Dive sites"
+    },
+    "diveSitesEditPage": {
+        "createDiveSite": "Create a dive site",
+        "name": "Name",
+        "location": "Location",
+        "difficulty": "Difficulty",
+        "waterType": "Water type",
+        "description": "Description",
+        "longitude": "Longitude",
+        "latitude": "Latitude",
+        "create-success": "{{diveSite}} was successfully created",
+        "create-fail": "An error occurred during the creation of the dive site",
+        "update-success": "{{diveSite}} was successfully updated",
+        "update-fail": "An error occurred during the update of the dive site"
+    },
+    "diveSiteShowPage": {
+        "details": "Details",
+        "name": "Name",
+        "location": "Location",
+        "difficulty": "Difficulty",
+        "waterType": "Water type",
+        "description": "Description"
+    },
+    "diveSiteSelectLocationMapModalComponent": {
+        "siteLocation": "Site location",
+        "noLocation": "Please select a location on the map"
     }
 }

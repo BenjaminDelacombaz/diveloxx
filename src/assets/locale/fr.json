@@ -9,7 +9,8 @@
         "divers": "Plongeurs",
         "home": "Accueil",
         "myProfile": "Mon profil",
-        "diveSites": "Sites"
+        "diveSites": "Sites",
+        "dives": "Plongées"
     },
     "form": {
         "invalid": "Le formulaire n'est pas valide",

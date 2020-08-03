@@ -9,7 +9,8 @@
         "divers": "Divers",
         "home": "Home",
         "myProfile": "My profile",
-        "diveSites": "Sites"
+        "diveSites": "Sites",
+        "dives": "Dives"
     },
     "form": {
         "invalid": "The form is not valid",

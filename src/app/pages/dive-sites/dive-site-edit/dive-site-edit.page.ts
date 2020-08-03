@@ -4,10 +4,11 @@ import { DiveSite, DiveSiteInterface } from 'src/app/models/dive-site.model';
 import { TranslateService } from '@ngx-translate/core';
 import { DiveSiteService } from 'src/app/services/dive-site/dive-site.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController, NavController } from '@ionic/angular';
+import { ToastController, NavController, ModalController } from '@ionic/angular';
 import { ErrorService } from 'src/app/services/error/error.service';
 import * as firebase from 'firebase'
 import { Observable } from 'rxjs';
+import { DiveSiteSelectLocationMapModalPage } from 'src/app/components/dive-site-select-location-map-modal/dive-site-select-location-map-modal.page';
 
 @Component({
   selector: 'app-dive-site-edit',
@@ -20,6 +21,8 @@ export class DiveSiteEditPage implements OnInit {
   private diveSite: DiveSite
   public diveSiteId: string
 
+  private data
+
   constructor(
     private formBuilder: FormBuilder,
     private errorService: ErrorService,
@@ -29,6 +32,7 @@ export class DiveSiteEditPage implements OnInit {
     private translate: TranslateService,
     private navController: NavController,
     private route: ActivatedRoute,
+    private modalController: ModalController,
   ) {
     // Init form
     this.diveSiteForm = this.formBuilder.group({
@@ -140,5 +144,26 @@ export class DiveSiteEditPage implements OnInit {
         color: 'danger',
       })).present()
     }
+  }
+
+  async presentMapModal() {
+    let diveSiteLocation: google.maps.LatLng = null
+    if(this.diveSiteForm.value.latitude !== '' && this.diveSiteForm.value.latitude !== '') {
+      diveSiteLocation = new google.maps.LatLng(this.diveSiteForm.value.latitude, this.diveSiteForm.value.longitude)
+    }
+    const modal = await this.modalController.create({
+      component: DiveSiteSelectLocationMapModalPage,
+      componentProps: {
+        diveSiteLocation: diveSiteLocation
+      }
+    })
+    modal.onDidDismiss().then(data => {
+      if (data.data && data.data['diveSiteLocation']) {
+        let diveDiteMapLocation: google.maps.LatLng = data.data['diveSiteLocation']
+        this.diveSiteForm.controls.latitude.setValue(diveDiteMapLocation.lat())
+        this.diveSiteForm.controls.longitude.setValue(diveDiteMapLocation.lng())
+      }
+    })
+    return await modal.present()
   }
 }

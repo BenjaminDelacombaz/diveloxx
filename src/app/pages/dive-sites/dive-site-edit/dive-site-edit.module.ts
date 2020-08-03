@@ -9,6 +9,7 @@ import { DiveSiteEditPageRoutingModule } from './dive-site-edit-routing.module';
 import { DiveSiteEditPage } from './dive-site-edit.page';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { DiveSiteSelectLocationMapModalPageModule } from 'src/app/components/dive-site-select-location-map-modal/dive-site-select-location-map-modal.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DiveSiteEditPageRoutingModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
+    DiveSiteSelectLocationMapModalPageModule,
   ],
   declarations: [DiveSiteEditPage]
 })

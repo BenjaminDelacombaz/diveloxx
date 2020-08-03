@@ -108,6 +108,7 @@
         "description": "Description"
     },
     "diveSiteSelectLocationMapModalComponent": {
-        "siteLocation": "Site location"
+        "siteLocation": "Site location",
+        "noLocation": "Please select a location on the map"
     }
 }

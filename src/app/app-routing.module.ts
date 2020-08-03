@@ -79,6 +79,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasProfileGuard, CanUpdateDiveSiteGuard],
     loadChildren: () => import('./pages/dive-sites/dive-site-edit/dive-site-edit.module').then( m => m.DiveSiteEditPageModule)
   },
+  {
+    path: 'dives/create',
+    loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
+  },
+
 
 ];
 

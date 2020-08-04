@@ -45,6 +45,27 @@
         "cave": "Grotte",
         "river": "Rivière"
     },
+    "visibilities": {
+        "veryBad": "Très mauvaise",
+        "bad": "Mauvaise",
+        "medium": "Moyenne",
+        "good": "Bonne",
+        "veryGood": "Très bonne"
+    },
+    "monthShortNames": [
+        "Jan",
+        "Fév",
+        "Mar",
+        "Avr",
+        "Mai",
+        "Jun",
+        "Jul",
+        "Aoû",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Déc"
+    ],
     "loginPage": {
         "login": "Se connecter",
         "email": "Email",
@@ -119,5 +140,16 @@
     "diveSiteSelectLocationMapModalComponent": {
         "siteLocation": "Emplacement du site",
         "noLocation": "Veuillez sélectionner un emplacement sur la carte"
+    },
+    "diveEditPage": {
+        "createDive": "Créer une plongée",
+        "diveSite": "Site de plongée",
+        "date": "Date",
+        "depth": "Profondeur",
+        "duration": "Durée",
+        "temperature": "Température",
+        "visibility": "Visibilité",
+        "divers": "Plongeurs",
+        "comments": "Commentaires"
     }
 }

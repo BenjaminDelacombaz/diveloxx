@@ -83,6 +83,11 @@ const routes: Routes = [
     path: 'dives/create',
     loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
   },
+  {
+    path: 'dives',
+    loadChildren: () => import('./pages/dives/dive-index/dive-index.module').then( m => m.DiveIndexPageModule)
+  },
+
 
 
 ];

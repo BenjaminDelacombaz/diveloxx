@@ -87,7 +87,7 @@ export class DiveEditPage implements OnInit {
       // Convert the birthdate
       let date = firebase.firestore.Timestamp.fromDate(new Date(this.diveForm.value.date))
       // Create the dive
-      let dive$: Observable<Dive> = await this.diveService.create({ dive_site: this.diveForm.value.dive_site, date: date, depth: this.diveForm.value.depth, duration: this.diveForm.value.duration, temperature: this.diveForm.value.temperature, visibility: this.diveForm.value.visibility, divers: this.diveForm.value.divers, comments: this.diveForm.value.comments, id: null, owner_id: null })
+      let dive$: Observable<Dive> = await this.diveService.create({ dive_site_id: this.diveForm.value.dive_site, date: date, depth: this.diveForm.value.depth, duration: this.diveForm.value.duration, temperature: this.diveForm.value.temperature, visibility: this.diveForm.value.visibility, divers_id: this.diveForm.value.divers, comments: this.diveForm.value.comments, id: null, owner_id: null })
       let dive: Dive = await dive$.toPromise()
         // Display success message
         ; (await this.toastController.create({

@@ -27,6 +27,15 @@ export class DiveService {
     private diveSiteService: DiveSiteService,
   ) { }
 
+  getDives(): Observable<Dive[]> {
+    return this.angularFirestore
+      .collection<DiveInterface>(this.docPath, ref => ref.orderBy('date', 'desc'))
+      .valueChanges()
+      .pipe(
+        map((divesI: DiveInterface[]) => divesI.map(dive => this.interfaceToClass(dive)))
+      )
+  }
+
   getDive(docId: string) {
     return this.angularFirestore
       .doc<any>(`${this.docPath}/${docId}`)
@@ -46,5 +55,15 @@ export class DiveService {
     diveI.owner_id = this.diverService.currentDiver.id
     await this.angularFirestore.doc<DiveInterface>(`${this.docPath}/${docId}`).set(diveI)
     return this.getDive(docId).pipe(first())
+  }
+
+  private interfaceToClass(diveI: DiveInterface): Dive {
+    if (diveI) {
+      let dive: Dive = new Dive(diveI)
+      dive.dive_site = this.diveSiteService.getDiveSite(diveI.dive_site_id)
+      dive.divers = this.diverService.getDiversById(diveI.divers_id)
+      return dive
+    }
+    return null
   }
 }

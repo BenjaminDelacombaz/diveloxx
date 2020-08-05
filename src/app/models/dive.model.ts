@@ -6,11 +6,11 @@ export interface DiveInterface {
     comments: string
     date: firebase.firestore.Timestamp
     depth: number
-    dive_site: DiveSite
+    dive_site: string
     duration: number
     temperature: number
     visibility: number
-    divers: Diver[]
+    divers: string[]
     owner_id: string
 }
 export class Dive implements DiveInterface {
@@ -18,11 +18,11 @@ export class Dive implements DiveInterface {
     public comments: string
     public date: firebase.firestore.Timestamp
     public depth: number
-    public dive_site: DiveSite
+    public dive_site: string
     public duration: number
     public temperature: number
     public visibility: number
-    public divers: Diver[]
+    public divers: string[]
     public owner_id: string
 
     constructor(dive: DiveInterface) {

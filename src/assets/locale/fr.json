@@ -150,6 +150,8 @@
         "temperature": "Température",
         "visibility": "Visibilité",
         "divers": "Plongeurs",
-        "comments": "Commentaires"
+        "comments": "Commentaires",
+        "create-success": "Votre plongée a été créée avec succès",
+        "create-fail": "Une erreur est survenu lors de la création de la plongée"
     }
 }

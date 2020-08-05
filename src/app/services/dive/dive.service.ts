@@ -4,6 +4,7 @@ import { DiveInterface, Dive } from 'src/app/models/dive.model';
 import { map, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { DiverService } from '../diver/diver.service';
+import { DiveSiteService } from '../dive-site/dive-site.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,16 @@ export class DiveService {
   constructor(
     private angularFirestore: AngularFirestore,
     private diverService: DiverService,
+    private diveSiteService: DiveSiteService,
   ) { }
 
   getDive(docId: string) {
     return this.angularFirestore
-      .doc<DiveInterface>(`${this.docPath}/${docId}`)
+      .doc<any>(`${this.docPath}/${docId}`)
       .valueChanges()
       .pipe(
-        map((dive: DiveInterface) => {
-          return dive ? new Dive(dive) : null
+        map((diveI) => {
+          return diveI ? new Dive(diveI) : null
         })
       )
   }

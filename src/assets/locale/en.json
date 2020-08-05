@@ -150,6 +150,8 @@
         "temperature": "Temperature",
         "visibility": "Visibilité",
         "divers": "Divers",
-        "comments": "Comments"
+        "comments": "Comments",
+        "create-success": "Your dive was successfully created",
+        "create-fail": "An error occurred during the creation of the dive"
     }
 }

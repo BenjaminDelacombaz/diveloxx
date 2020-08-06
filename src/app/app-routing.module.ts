@@ -94,10 +94,6 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/dives/dive-show/dive-show.module').then( m => m.DiveShowPageModule)
   },
-
-
-
-
 ];
 
 @NgModule({

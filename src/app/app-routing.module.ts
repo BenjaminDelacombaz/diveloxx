@@ -81,12 +81,20 @@ const routes: Routes = [
   },
   {
     path: 'dives/create',
+    canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
   },
   {
     path: 'dives',
+    canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/dives/dive-index/dive-index.module').then( m => m.DiveIndexPageModule)
   },
+  {
+    path: 'dives/:id',
+    canActivate: [AuthGuard, HasProfileGuard],
+    loadChildren: () => import('./pages/dives/dive-show/dive-show.module').then( m => m.DiveShowPageModule)
+  },
+
 
 
 

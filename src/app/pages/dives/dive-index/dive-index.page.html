@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dive-index</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'diveIndexPage.dives' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item lines="full" *ngFor="let dive of (dives$ | async); let i = index" [routerLink]="['/dives', dive.id]" detail>
+      <h3 slot="start">{{ divesCount - i }}</h3> 
+      <ion-label>
+        <h2>{{ dive.dive_site | async }} | {{ dive.date.toDate() | date }}</h2>
+        <h3>{{ dive.depth }} {{ 'metersSmall' | translate }} | {{ dive.duration }} {{ 'minutesSmall' | translate }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/dives/create']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

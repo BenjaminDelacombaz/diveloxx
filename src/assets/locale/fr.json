@@ -1,4 +1,6 @@
 {
+    "metersSmall": "m",
+    "minutesSmall": "min",
     "northSmall": "N",
     "westSmall": "E",
     "search": "Rechercher",
@@ -153,5 +155,8 @@
         "comments": "Commentaires",
         "create-success": "Votre plongée a été créée avec succès",
         "create-fail": "Une erreur est survenu lors de la création de la plongée"
+    },
+    "diveIndexPage": {
+        "dives": "Plongées"
     }
 }

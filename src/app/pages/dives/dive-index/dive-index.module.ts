@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DiveIndexPageRoutingModule } from './dive-index-routing.module';
 
 import { DiveIndexPage } from './dive-index.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DiveIndexPageRoutingModule
+    DiveIndexPageRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [DiveIndexPage]
 })

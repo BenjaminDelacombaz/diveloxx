@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Dive, DiveInterface } from 'src/app/models/dive.model';
+import { DiveInterface } from 'src/app/models/dive.model';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ErrorService } from 'src/app/services/error/error.service';
-import { ToastController, NavController, ModalController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ToastController, NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 import { DiveSiteService } from 'src/app/services/dive-site/dive-site.service';
 import { TranslateService } from '@ngx-translate/core';
 import { DiveService } from 'src/app/services/dive/dive.service';
@@ -11,7 +11,6 @@ import { DiveSite } from 'src/app/models/dive-site.model';
 import { DiverService } from 'src/app/services/diver/diver.service';
 import { Diver } from 'src/app/models/diver.model';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -22,7 +21,6 @@ import { DatePipe } from '@angular/common';
 export class DiveEditPage implements OnInit {
 
   private diveForm: FormGroup
-  private dive: Dive
   public diveId: string
   public diveSites: DiveSite[]
   public divers: Diver[]
@@ -31,12 +29,10 @@ export class DiveEditPage implements OnInit {
     private formBuilder: FormBuilder,
     private errorService: ErrorService,
     private toastController: ToastController,
-    private router: Router,
     public diveService: DiveService,
     private translate: TranslateService,
     private navController: NavController,
     private route: ActivatedRoute,
-    private modalController: ModalController,
     private diveSiteService: DiveSiteService,
     private diverService: DiverService,
     private datePipe: DatePipe,
@@ -65,7 +61,6 @@ export class DiveEditPage implements OnInit {
     // If dive id is provided
     if (this.diveId) {
       this.diveService.getDive(this.diveId).subscribe(dive => {
-        this.dive = dive
         this.diveForm.setValue({
           comments: dive.comments,
           date: this.datePipe.transform(dive.date.toDate(), 'yyyy-MM-dd HH:mm'),
@@ -105,7 +100,7 @@ export class DiveEditPage implements OnInit {
       // Convert the birthdate
       let date = firebase.firestore.Timestamp.fromDate(new Date(this.diveForm.value.date))
       // Create the dive
-      let dive$: Observable<Dive> = await this.diveService.create({ dive_site_id: this.diveForm.value.dive_site_id, date: date, depth: this.diveForm.value.depth, duration: this.diveForm.value.duration, temperature: this.diveForm.value.temperature, visibility: this.diveForm.value.visibility, divers_id: this.diveForm.value.divers_id, comments: this.diveForm.value.comments, id: null, owner_id: null })
+      await this.diveService.create({ dive_site_id: this.diveForm.value.dive_site_id, date: date, depth: this.diveForm.value.depth, duration: this.diveForm.value.duration, temperature: this.diveForm.value.temperature, visibility: this.diveForm.value.visibility, divers_id: this.diveForm.value.divers_id, comments: this.diveForm.value.comments, id: null, owner_id: null })
         // Display success message
         ; (await this.toastController.create({
           message: this.translate.instant('diveEditPage.create-success'),
@@ -138,7 +133,7 @@ export class DiveEditPage implements OnInit {
       if (dirtyValues.date) {
         dirtyValues.date = dirtyValues.date ? firebase.firestore.Timestamp.fromDate(new Date(this.diveForm.value.date)) : null
       }
-      let dive$: Observable<Dive> = await this.diveService.update(this.diveId, dirtyValues)
+      await this.diveService.update(this.diveId, dirtyValues)
         // Display success message
         ; (await this.toastController.create({
           message: this.translate.instant('diveEditPage.update-success'),

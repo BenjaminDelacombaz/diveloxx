@@ -120,6 +120,7 @@
     },
     "diveSitesEditPage": {
         "createDiveSite": "Create a dive site",
+        "updateDiveSite": "Edit a dive site",
         "name": "Name",
         "location": "Location",
         "difficulty": "Difficulty",
@@ -146,6 +147,7 @@
     },
     "diveEditPage": {
         "createDive": "Create a dive",
+        "updateDive": "Edit a dive",
         "diveSite": "Dive site",
         "date": "Date",
         "depth": "Depth in meters",
@@ -155,7 +157,9 @@
         "divers": "Divers",
         "comments": "Comments",
         "create-success": "Your dive was successfully created",
-        "create-fail": "An error occurred during the creation of the dive"
+        "create-fail": "An error occurred during the creation of the dive",
+        "update-success": "The dive was successfully updated",
+        "update-fail": "An error occurred during the update of the dive"
     },
     "diveIndexPage": {
         "dives": "Dives"

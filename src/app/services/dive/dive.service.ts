@@ -57,6 +57,11 @@ export class DiveService {
     return this.getDive(docId).pipe(first())
   }
 
+  async update(docId: string, diveSiteI: Partial<DiveInterface>): Promise<Observable<Dive>> {
+    await this.angularFirestore.doc<DiveInterface>(`${this.docPath}/${docId}`).update(diveSiteI)
+    return this.getDive(docId).pipe(first())
+  }
+
   private interfaceToClass(diveI: DiveInterface): Dive {
     if (diveI) {
       let dive: Dive = new Dive(diveI)

@@ -90,9 +90,9 @@
         "create-diver": "Créer un plongeur",
         "create-profile": "Créer votre profil",
         "create-success": "{{diver}} a été créé avec succès",
-        "create-fail": "Une erreur est survenu lors de la création du plongeur",
+        "create-fail": "Une erreur est survenue lors de la création du plongeur",
         "update-success": "{{diver}} a été modifié avec succès",
-        "update-fail": "Une erreur est survenu lors de la modification du plongeur",
+        "update-fail": "Une erreur est survenue lors de la modification du plongeur",
         "update-diver": "Modifier un plongeur",
         "update-profile": "Modifier votre profil"
     },
@@ -120,6 +120,7 @@
     },
     "diveSiteEditPage": {
         "createDiveSite": "Créer un site de plongée",
+        "updateDiveSite": "Modifier un site de plongée",
         "name": "Nom",
         "location": "Emplacement",
         "difficulty": "Difficulté",
@@ -128,9 +129,9 @@
         "longitude": "Longitude",
         "latitude": "Latitude",
         "create-success": "{{diveSite}} a été créé avec succès",
-        "create-fail": "Une erreur est survenu lors de la création du site de plongée",
+        "create-fail": "Une erreur est survenue lors de la création du site de plongée",
         "update-success": "{{diveSite}} a été modifié avec succès",
-        "update-fail": "Une erreur est survenu lors de la modification du site de plongée"
+        "update-fail": "Une erreur est survenue lors de la modification du site de plongée"
     },
     "diveSiteShowPage": {
         "details": "Détails",
@@ -146,6 +147,7 @@
     },
     "diveEditPage": {
         "createDive": "Créer une plongée",
+        "updateDive": "Modifier une plongée",
         "diveSite": "Site de plongée",
         "date": "Date",
         "depth": "Profondeur en mètres",
@@ -155,7 +157,9 @@
         "divers": "Plongeurs",
         "comments": "Commentaires",
         "create-success": "Votre plongée a été créée avec succès",
-        "create-fail": "Une erreur est survenu lors de la création de la plongée"
+        "create-fail": "Une erreur est survenue lors de la création de la plongée",
+        "update-success": "La plongée a été modifié avec succès",
+        "update-fail": "Une erreur est survenue lors de la modification de la plongée"
     },
     "diveIndexPage": {
         "dives": "Plongées"

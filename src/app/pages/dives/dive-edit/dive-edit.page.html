@@ -5,6 +5,7 @@
     </ion-buttons>
     <ion-title>
       <span *ngIf="!diveId">{{ 'diveEditPage.createDive' | translate }}</span>
+      <span *ngIf="diveId">{{ 'diveEditPage.updateDive' | translate }}</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,15 +16,15 @@
       <!-- Dive site input item -->
       <ion-item>
         <ion-label position="floating">{{ 'diveEditPage.diveSite' | translate }} *</ion-label>
-        <ion-select formControlName="dive_site" required>
+        <ion-select formControlName="dive_site_id" required>
           <ion-select-option *ngFor="let diveSite of diveSites" [value]="diveSite.id">
             {{ diveSite }}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <div class="validation-errors"
-        *ngIf="(diveForm.controls.dive_site.dirty || diveForm.controls.dive_site.touched) && diveForm.controls.dive_site.errors">
-        <ng-container *ngFor="let error of diveForm.controls.dive_site.errors | keyvalue">
+        *ngIf="(diveForm.controls.dive_site_id.dirty || diveForm.controls.dive_site_id.touched) && diveForm.controls.dive_site_id.errors">
+        <ng-container *ngFor="let error of diveForm.controls.dive_site_id.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
             {{ errorService.getInputValidationMsg(error.key, error.value) }}
@@ -107,15 +108,15 @@
       <!-- Divers input item -->
       <ion-item>
         <ion-label position="floating">{{ 'diveEditPage.divers' | translate }}</ion-label>
-        <ion-select formControlName="divers" multiple>
+        <ion-select formControlName="divers_id" multiple>
           <ion-select-option *ngFor="let diver of divers" [value]="diver.id">
             {{ diver }}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <div class="validation-errors"
-        *ngIf="(diveForm.controls.divers.dirty || diveForm.controls.divers.touched) && diveForm.controls.divers.errors">
-        <ng-container *ngFor="let error of diveForm.controls.divers.errors | keyvalue">
+        *ngIf="(diveForm.controls.divers_id.dirty || diveForm.controls.divers_id.touched) && diveForm.controls.divers_id.errors">
+        <ng-container *ngFor="let error of diveForm.controls.divers_id.errors | keyvalue">
           <div class="error-message">
             <ion-icon name="alert-circle-outline"></ion-icon>
             {{ errorService.getInputValidationMsg(error.key, error.value) }}

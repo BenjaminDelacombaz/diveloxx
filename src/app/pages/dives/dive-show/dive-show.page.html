@@ -1,9 +1,60 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dive-show</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ dive?.dive_site | async }} | {{ dive?.date.toDate() | date }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ 'diveShowPage.details' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <span *ngIf="dive?.dive_site | async as diveSite">{{ 'diveShowPage.diveSite' | translate }}: 
+        <ion-chip color="primary" [routerLink]="['/dive-sites', diveSite.id]">
+          <ion-icon name="map"></ion-icon>
+          <ion-label>{{ diveSite }}</ion-label>
+        </ion-chip>
+      </span><br>
+      <span *ngIf="dive?.date">{{ 'diveShowPage.date' | translate }}: {{ dive?.date.toDate() | date:'medium' }}</span><br>
+      <span *ngIf="dive?.depth">{{ 'diveShowPage.depth' | translate }}: {{ dive?.depth }} {{ 'metersSmall' | translate }}</span><br>
+      <span *ngIf="dive?.duration">{{ 'diveShowPage.duration' | translate }}: {{ dive?.duration }} {{ 'minutesSmall' | translate }}</span><br>
+      <span *ngIf="dive?.temperature">{{ 'diveShowPage.temperature' | translate }}: {{ dive?.temperature }}</span><br>
+      <span *ngIf="dive?.visibility">{{ 'diveShowPage.visibility' | translate }}: {{ 'visibilities.' + diveService.visibilityValueToName(dive?.visibility) | translate }}</span><br>
+      <span *ngIf="dive?.divers">{{ 'diveShowPage.divers' | translate }}:</span><br>
+    </ion-card-content>
+  </ion-card>
 
+  <ion-card *ngIf="(dive?.divers | async)?.length">
+    <ion-card-header>
+      <ion-card-title>{{ 'diveShowPage.divers' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-chip *ngFor="let diver of dive?.divers | async" color="primary" [routerLink]="['/divers', diver.id]">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>{{ diver }}</ion-label>
+      </ion-chip>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="dive?.comments">
+    <ion-card-header>
+      <ion-card-title>{{ 'diveShowPage.comments' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p class="with-line-breaks">{{ dive?.comments }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="canUpdate">
+    <ion-fab-button [routerLink]="['/dives', diveId, 'edit']">
+      <ion-icon name="pencil"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

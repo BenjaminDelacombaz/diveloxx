@@ -29,7 +29,7 @@ export class DiveService {
 
   getDives(): Observable<Dive[]> {
     return this.angularFirestore
-      .collection<DiveInterface>(this.docPath, ref => ref.orderBy('date', 'desc'))
+      .collection<DiveInterface>(this.docPath, ref => ref.where('owner_id', '==', this.diverService.currentDiver.id).orderBy('date', 'desc'))
       .valueChanges()
       .pipe(
         map((divesI: DiveInterface[]) => divesI.map(dive => this.interfaceToClass(dive)))
@@ -42,7 +42,7 @@ export class DiveService {
       .valueChanges()
       .pipe(
         map((diveI) => {
-          return diveI ? new Dive(diveI) : null
+          return diveI ? this.interfaceToClass(diveI) : null
         })
       )
   }
@@ -65,5 +65,10 @@ export class DiveService {
       return dive
     }
     return null
+  }
+
+  visibilityValueToName(value: number): string {
+    let filteredVisibilities = this.visibilities.filter(visibility => visibility.value === value)
+    return filteredVisibilities[0].name
   }
 }

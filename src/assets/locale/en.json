@@ -158,5 +158,16 @@
     },
     "diveIndexPage": {
         "dives": "Dives"
+    },
+    "diveShowPage": {
+        "details": "Details",
+        "diveSite": "Dive site",
+        "date": "Date",
+        "depth": "Depth",
+        "duration": "Duration",
+        "temperature": "Temperature",
+        "visibility": "Visibilité",
+        "divers": "Divers",
+        "comments": "Comments"
     }
 }

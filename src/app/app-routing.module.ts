@@ -4,6 +4,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { HasProfileGuard } from './guards/hasProfile/has-profile.guard';
 import { CanUpdateDiverGuard } from './guards/canUpdateDiver/can-update-diver.guard';
 import { CanUpdateDiveSiteGuard } from './guards/canUpdateDiveSite/can-update-dive-site.guard';
+import { CanUpdateDiveGuard } from './guards/canUpdateDive/can-update-dive.guard';
 
 const routes: Routes = [
   {
@@ -93,6 +94,11 @@ const routes: Routes = [
     path: 'dives/:id',
     canActivate: [AuthGuard, HasProfileGuard],
     loadChildren: () => import('./pages/dives/dive-show/dive-show.module').then( m => m.DiveShowPageModule)
+  },
+  {
+    path: 'dives/:id/edit',
+    canActivate: [AuthGuard, HasProfileGuard, CanUpdateDiveGuard],
+    loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
   },
 ];
 

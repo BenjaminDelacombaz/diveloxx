@@ -23,9 +23,8 @@
       <span *ngIf="dive?.date">{{ 'diveShowPage.date' | translate }}: {{ dive?.date.toDate() | date:'medium' }}</span><br>
       <span *ngIf="dive?.depth">{{ 'diveShowPage.depth' | translate }}: {{ dive?.depth }} {{ 'metersSmall' | translate }}</span><br>
       <span *ngIf="dive?.duration">{{ 'diveShowPage.duration' | translate }}: {{ dive?.duration }} {{ 'minutesSmall' | translate }}</span><br>
-      <span *ngIf="dive?.temperature">{{ 'diveShowPage.temperature' | translate }}: {{ dive?.temperature }}</span><br>
+      <span *ngIf="dive?.temperature">{{ 'diveShowPage.temperature' | translate }}: {{ dive?.temperature }} {{ 'temperatureSmall' | translate }}</span><br>
       <span *ngIf="dive?.visibility">{{ 'diveShowPage.visibility' | translate }}: {{ 'visibilities.' + diveService.visibilityValueToName(dive?.visibility) | translate }}</span><br>
-      <span *ngIf="dive?.divers">{{ 'diveShowPage.divers' | translate }}:</span><br>
     </ion-card-content>
   </ion-card>
 

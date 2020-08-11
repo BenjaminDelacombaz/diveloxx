@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { Router } from '@angular/router';
-import { DiverService } from 'src/app/services/diver/diver.service';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class MyProfileIndexPage implements OnInit {
 
   constructor(
-    private router: Router,
     private authService: AuthService,
     private alertController: AlertController,
     private translateService: TranslateService,
@@ -24,7 +21,7 @@ export class MyProfileIndexPage implements OnInit {
 
   logOut() {
     this.authService.logout()
-    this.router.navigate(['/login'], { replaceUrl: true })
+    window.location.replace('/login')
   }
 
   async changePassword() {

@@ -13,6 +13,7 @@ export interface DiveInterface {
     visibility: number
     divers_id: string[]
     owner_id: string
+    accepted: boolean
 }
 export class Dive implements DiveInterface {
     public id: string
@@ -27,6 +28,7 @@ export class Dive implements DiveInterface {
     public owner_id: string
     public dive_site: Observable<DiveSite>
     public divers: Observable<Diver[]>
+    public accepted: boolean
 
     constructor(dive: DiveInterface) {
         this.id = dive.id
@@ -39,5 +41,6 @@ export class Dive implements DiveInterface {
         this.visibility = dive.visibility
         this.divers_id = dive.divers_id
         this.owner_id = dive.owner_id
+        this.accepted = dive.accepted
     }
 }

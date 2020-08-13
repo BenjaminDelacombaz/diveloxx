@@ -99,15 +99,28 @@ export class DiveEditPage implements OnInit {
     try {
       // Convert the birthdate
       let date = firebase.firestore.Timestamp.fromDate(new Date(this.diveForm.value.date))
+      let diveI: DiveInterface = {
+        dive_site_id: this.diveForm.value.dive_site_id,
+        date: date, depth: this.diveForm.value.depth,
+        duration: this.diveForm.value.duration,
+        temperature: this.diveForm.value.temperature,
+        visibility: this.diveForm.value.visibility,
+        divers_id: this.diveForm.value.divers_id,
+        comments: this.diveForm.value.comments,
+        id: null,
+        owner_id: null,
+        accepted: true 
+      }
       // Create the dive
-      await this.diveService.create({ dive_site_id: this.diveForm.value.dive_site_id, date: date, depth: this.diveForm.value.depth, duration: this.diveForm.value.duration, temperature: this.diveForm.value.temperature, visibility: this.diveForm.value.visibility, divers_id: this.diveForm.value.divers_id, comments: this.diveForm.value.comments, id: null, owner_id: null })
+      await this.diveService.create(diveI)
+      // Create dive for buddies
+      await this.diveService.createForBuddies(diveI)
         // Display success message
         ; (await this.toastController.create({
           message: this.translate.instant('diveEditPage.create-success'),
           duration: 5000,
           color: 'success',
         })).present()
-
       this.navController.back()
     } catch (error) {
       // Display error toast

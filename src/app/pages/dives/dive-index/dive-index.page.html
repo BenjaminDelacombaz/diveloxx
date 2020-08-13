@@ -12,6 +12,7 @@
         <h2>{{ dive.dive_site | async }} | {{ dive.date.toDate() | date }}</h2>
         <h3>{{ dive.depth }} {{ 'metersSmall' | translate }} | {{ dive.duration }} {{ 'minutesSmall' | translate }}</h3>
       </ion-label>
+      <ion-icon *ngIf="!dive.accepted" name="alert-circle" size="large" slot="end" color="warning"></ion-icon>
     </ion-item>
   </ion-list>
 

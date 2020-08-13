@@ -1,4 +1,5 @@
 import { DiveSite } from './dive-site.model'
+import { Dive } from './dive.model'
 
 export interface DiverInterface {
     id: string
@@ -35,7 +36,7 @@ export class Diver implements DiverInterface {
         return `${this.firstname} ${this.lastname}`
     }
 
-    canUpdate(obj: Diver|DiveSite): boolean {
+    canUpdate(obj: Diver|DiveSite|Dive): boolean {
         return obj.owner_id === this.id
     }
 }

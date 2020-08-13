@@ -21,8 +21,6 @@ export class DiveSiteEditPage implements OnInit {
   private diveSite: DiveSite
   public diveSiteId: string
 
-  private data
-
   constructor(
     private formBuilder: FormBuilder,
     private errorService: ErrorService,

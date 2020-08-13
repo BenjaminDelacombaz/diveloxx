@@ -75,4 +75,8 @@ export class DiverService {
         return divers
       }))
   }
+
+  getDiversById(diversId: Array<string>): Observable<Diver[]> {
+    return this.getDivers(true).pipe(map(divers => divers.filter(diver => diversId.includes(diver.id))))
+  }
 }

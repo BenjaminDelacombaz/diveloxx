@@ -4,6 +4,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { HasProfileGuard } from './guards/hasProfile/has-profile.guard';
 import { CanUpdateDiverGuard } from './guards/canUpdateDiver/can-update-diver.guard';
 import { CanUpdateDiveSiteGuard } from './guards/canUpdateDiveSite/can-update-dive-site.guard';
+import { CanUpdateDiveGuard } from './guards/canUpdateDive/can-update-dive.guard';
 
 const routes: Routes = [
   {
@@ -79,7 +80,26 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasProfileGuard, CanUpdateDiveSiteGuard],
     loadChildren: () => import('./pages/dive-sites/dive-site-edit/dive-site-edit.module').then( m => m.DiveSiteEditPageModule)
   },
-
+  {
+    path: 'dives/create',
+    canActivate: [AuthGuard, HasProfileGuard],
+    loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
+  },
+  {
+    path: 'dives',
+    canActivate: [AuthGuard, HasProfileGuard],
+    loadChildren: () => import('./pages/dives/dive-index/dive-index.module').then( m => m.DiveIndexPageModule)
+  },
+  {
+    path: 'dives/:id',
+    canActivate: [AuthGuard, HasProfileGuard],
+    loadChildren: () => import('./pages/dives/dive-show/dive-show.module').then( m => m.DiveShowPageModule)
+  },
+  {
+    path: 'dives/:id/edit',
+    canActivate: [AuthGuard, HasProfileGuard, CanUpdateDiveGuard],
+    loadChildren: () => import('./pages/dives/dive-edit/dive-edit.module').then( m => m.DiveEditPageModule)
+  },
 ];
 
 @NgModule({

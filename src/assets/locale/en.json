@@ -1,15 +1,23 @@
 {
+    "metersSmall": "m",
+    "minutesSmall": "min",
     "northSmall": "N",
     "westSmall": "W",
+    "temperatureSmall": "C°",
     "search": "Search",
     "ok": "OK",
     "cancel": "Cancel",
     "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "deletionConfirmationHeader": "Deletion Confirmation",
+    "deletionConfirmationMessage": "Do you really want to delete this item?",
     "tabs": {
         "divers": "Divers",
         "home": "Home",
         "myProfile": "My profile",
-        "diveSites": "Sites"
+        "diveSites": "Sites",
+        "dives": "Dives"
     },
     "form": {
         "invalid": "The form is not valid",
@@ -44,6 +52,27 @@
         "cave": "Cave",
         "river": "River"
     },
+    "visibilities": {
+        "veryBad": "Very bad",
+        "bad": "Bad",
+        "medium": "Medium",
+        "good": "Good",
+        "veryGood": "Very good"
+    },
+    "monthShortNames": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ],
     "loginPage": {
         "login": "Login",
         "email": "Email",
@@ -95,6 +124,7 @@
     },
     "diveSitesEditPage": {
         "createDiveSite": "Create a dive site",
+        "updateDiveSite": "Edit a dive site",
         "name": "Name",
         "location": "Location",
         "difficulty": "Difficulty",
@@ -118,5 +148,39 @@
     "diveSiteSelectLocationMapModalComponent": {
         "siteLocation": "Site location",
         "noLocation": "Please select a location on the map"
+    },
+    "diveEditPage": {
+        "createDive": "Create a dive",
+        "updateDive": "Edit a dive",
+        "diveSite": "Dive site",
+        "date": "Date",
+        "depth": "Depth in meters",
+        "duration": "Duration in minutes",
+        "temperature": "Temperature in C°",
+        "visibility": "Visibilité",
+        "divers": "Divers",
+        "comments": "Comments",
+        "create-success": "Your dive was successfully created",
+        "create-fail": "An error occurred during the creation of the dive",
+        "update-success": "The dive was successfully updated",
+        "update-fail": "An error occurred during the update of the dive"
+    },
+    "diveIndexPage": {
+        "dives": "Dives"
+    },
+    "diveShowPage": {
+        "details": "Details",
+        "diveSite": "Dive site",
+        "date": "Date",
+        "depth": "Depth",
+        "duration": "Duration",
+        "temperature": "Temperature",
+        "visibility": "Visibilité",
+        "divers": "Divers",
+        "comments": "Comments",
+        "accept-success": "The action has been correctly recorded",
+        "accept-fail": "An error has occurred",
+        "delete-success": "The dive was successfully deleted",
+        "delete-fail": "An error occurred during the delete of the dive"
     }
 }

@@ -1,0 +1,665 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* altis_incident
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-09 12:41+0000\n"
+"PO-Revision-Date: 2021-03-09 13:50+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr_CH\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: altis_incident
+#: model:sms.template,body:altis_incident.sms_template_data_altis_incident
+msgid ""
+"\n"
+"                %if object.name:\n"
+"                    Subject: ${object.name}\n"
+"                %endif\n"
+"                %if object.description:\n"
+"                    ${object.description}.\n"
+"                %endif\n"
+"            "
+msgstr ""
+
+#. module: altis_incident
+#: model:mail.template,subject:altis_incident.incident_email_template
+msgid "${object.name}"
+msgstr ""
+
+#. module: altis_incident
+#: model:mail.template,body_html:altis_incident.incident_email_template
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\"><tbody><tr><td align=\"center\">\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding:16px;background-color: white; color: #454748; border-collapse:separate;\">\n"
+"<tbody>\n"
+"    <!-- HEADER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"middle\">\n"
+"                    <span style=\"font-size:10px;\">Incidents</span><br/>\n"
+"                    <span style=\"font-size:20px;font-weight: bold;\">\n"
+"                        ${object.name}\n"
+"                    </span>\n"
+"                </td><td valign=\"middle\" align=\"right\">\n"
+"                    <img src=\"/logo.png?company=1\" style=\"padding:0px;margin: 0px; height: auto; width: 80px;\" alt=\"Altis\"/>\n"
+"                </td></tr>\n"
+"                <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
+"                  <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <!-- CONTENT -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"top\" style=\"font-size:13px;\">\n"
+"                    <div>\n"
+"                        Incident type : ${object.incident_type_id.name}<br/>\n"
+"                        Date incident : ${object.date.strftime('%d.%m.%Y %H:%M')}<br/>\n"
+"                        Date end incident : ${object.end_date.strftime('%d.%m.%Y %H:%M')}<br/>\n"
+"                        Description : ${object.description}<br/>\n"
+"                        Zones : <ul>\n"
+"                                % for area in object.area_ids:\n"
+"                                    <li>${area.name}</li>\n"
+"                                % endfor\n"
+"                                </ul>\n"
+"\n"
+"                        \n"
+"                        If you do not expect this, you can safely ignore this email.<br/><br/>\n"
+"                        Thanks,\n"
+"                    </div>\n"
+"                </td></tr>\n"
+"                <tr><td style=\"text-align:center;\">\n"
+"                  <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"middle\" align=\"left\">\n"
+"                    Altis\n"
+"                </td></tr>\n"
+"                <tr><td valign=\"middle\" align=\"left\" style=\"opacity:0.7;\">\n"
+"                    +41 27 777 10 01 | <a href=\"mailto:info@altis.swiss\" style=\"text-decoration:none;color: #454748;\">info@altis.swiss</a> | <a href=\"https://www.altis.swiss/\" style=\"text-decoration:none;color: #454748;\">\n"
+"                        https://www.altis.swiss/\n"
+"                    </a>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"</tbody>\n"
+"</table>\n"
+"</td></tr>\n"
+"<!-- POWERED BY -->\n"
+"<tr><td align=\"center\" style=\"min-width:590px;\">\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"      <tbody><tr><td style=\"text-align:center;font-size: 13px;\">\n"
+"        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color:#875A7B;\">Odoo</a>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"</td></tr>\n"
+"</tbody></table>\n"
+"            "
+msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\"><tbody><tr><td align=\"center\">\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"border-collapse:collapse;padding:16px;background-color: white; color: #454748; border-collapse:separate;\">\n"
+"<tbody>\n"
+"    <!-- HEADER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"border-collapse:collapse;min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"middle\">\n"
+"                    <span style=\"font-size:10px;\">Incidents</span><br/>\n"
+"                    <span style=\"font-size:20px;font-weight: bold;\">\n"
+"                        ${object.name}\n"
+"                    </span>\n"
+"                </td><td valign=\"middle\" align=\"right\">\n"
+"                    <img src=\"/logo.png?company=1\" style=\"border-style:none;vertical-align:middle;padding:0px;margin: 0px; height: auto; width: 80px;\" alt=\"Altis\" width=\"80\" height=\"94.8438\"/>\n"
+"                </td></tr>\n"
+"                <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
+"                  <hr width=\"100%\" style=\"margin:1rem 0 1rem 0;border-top-color:rgba(0, 0, 0, 0.1);border-top-style:solid;border-top-width:1px;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <!-- CONTENT -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"border-collapse:collapse;min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"top\" style=\"font-size:13px;\">\n"
+"                    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"                        Type d'incident : ${object.incident_type_id.name}<br/>\n"
+"                        Date de l'incident : ${object.date.strftime('%d.%m.%Y %H:%M')}<br/>\n"
+"                        Date de fin de l'incident : ${object.end_date.strftime('%d.%m.%Y %H:%M')}<br/>\n"
+"                        Description : ${object.description}<br/>\n"
+"                        Zones : <ul style=\"margin:0px 0 1rem 0;\">\n"
+"                                % for area in object.area_ids:\n"
+"                                    <li>${area.name}</li>\n"
+"                                % endfor\n"
+"                                </ul>\n"
+"\n"
+"                        \n"
+"                        Si vous ne vous attendez pas à cela, vous pouvez ignorer cet e-mail en toute sécurité.<br /><br />\n"
+"                        Merci,\n"
+"                    </div>\n"
+"                </td></tr>\n"
+"                <tr><td style=\"text-align:center;\">\n"
+"                  <hr width=\"100%\" style=\"margin:1rem 0 1rem 0;border-top-color:rgba(0, 0, 0, 0.1);border-top-style:solid;border-top-width:1px;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;overflow-y:visible;overflow-x:visible;height:0px;box-sizing:content-box;background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width:590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"border-collapse:collapse;min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                <tbody><tr><td valign=\"middle\" align=\"left\">\n"
+"                    Altis\n"
+"                </td></tr>\n"
+"                <tr><td valign=\"middle\" align=\"left\" style=\"opacity:0.7;\">\n"
+"                    +41 27 777 10 01 | <a href=\"mailto:info@altis.swiss\" style=\"background-color:transparent;text-decoration-thickness:initial;text-decoration:none;color: #454748;\">info@altis.swiss</a> | <a href=\"https://www.altis.swiss/\" style=\"background-color:transparent;text-decoration-thickness:initial;text-decoration:none;color: #454748;\">\n"
+"                        https://www.altis.swiss/\n"
+"                    </a>\n"
+"                </td></tr>\n"
+"            </tbody></table>\n"
+"        </td>\n"
+"    </tr>\n"
+"</tbody>\n"
+"</table>\n"
+"</td></tr>\n"
+"<!-- POWERED BY -->\n"
+"<tr><td align=\"center\" style=\"min-width:590px;\">\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"border-collapse:collapse;min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"      <tbody><tr><td style=\"text-align:center;font-size: 13px;\">\n"
+"        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"background-color:transparent;text-decoration-thickness:initial;color:#875A7B;\">Odoo</a>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"</td></tr>\n"
+"</tbody></table>\n"
+"            "
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: altis_incident
+#: model:altis.incident_type,name:altis_incident.it_activation
+msgid "Activation or deactivation"
+msgstr "Mise en ou hors service"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__name
+msgid "Advertisement title"
+msgstr "Titre de l'annonce"
+
+#. module: altis_incident
+#: model:res.groups,name:altis_incident.altis_manager
+msgid "Altis / Manager"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_altis_incident
+msgid "Altis Incident"
+msgstr "Notification"
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_altis_incident_type
+msgid "Altis Incident Type"
+msgstr "Type de notification"
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_altis_notification_type
+msgid "Altis Notification type"
+msgstr "Moyen de notification"
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_altis_subscription
+msgid "Altis Subscription"
+msgstr "Souscription"
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_altis_area
+msgid "Altis area"
+msgstr "Zone"
+
+#. module: altis_incident
+#: model:ir.ui.menu,name:altis_incident.main_altis_menu
+msgid "Altis incidents"
+msgstr "Notifications"
+
+#. module: altis_incident
+#: code:addons/altis_incident/models/models.py:0
+#, python-format
+msgid "Are you sure that you want to notify %s poeple by email and %s people by SMS"
+msgstr "Êtes-vous sûr de vouloir informer %s personnes par e-mail et %s personnes par SMS"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__area_id
+msgid "Area"
+msgstr "Zone"
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.area_list_action
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__area_ids
+#: model:ir.ui.menu,name:altis_incident.area_menu
+msgid "Areas"
+msgstr "Zones"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: altis_incident
+#: model:altis.incident_type,name:altis_incident.it_breakdown
+msgid "Breakdown"
+msgstr "Panne"
+
+#. module: altis_incident
+#: model_terms:ir.ui.view,arch_db:altis_incident.incident_mail_wizard_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: altis_incident
+#: model_terms:ir.ui.view,arch_db:altis_incident.incident_mail_wizard_form
+msgid "Compose Email"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_res_partner
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: altis_incident
+#: model_terms:ir.actions.act_window,help:altis_incident.area_list_action
+msgid "Create the first area"
+msgstr "Créer la première zone"
+
+#. module: altis_incident
+#: model_terms:ir.actions.act_window,help:altis_incident.incident_list_action
+msgid "Create the first incident"
+msgstr "Créer la première notification"
+
+#. module: altis_incident
+#: model_terms:ir.actions.act_window,help:altis_incident.incident_type_list_action
+msgid "Create the first incident type"
+msgstr "Créer le premier type d'incident"
+
+#. module: altis_incident
+#: model_terms:ir.actions.act_window,help:altis_incident.notification_type_list_action
+msgid "Create the first notification type"
+msgstr "Créer le premier moyen de notification"
+
+#. module: altis_incident
+#: model_terms:ir.actions.act_window,help:altis_incident.subscription_list_action
+msgid "Create the first subscription"
+msgstr "Créer la première souscription"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__create_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__create_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__create_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__create_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__create_uid
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__create_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__create_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__create_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__create_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__create_date
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__description
+msgid "Description"
+msgstr "Communication"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__display_name
+#: model:ir.model.fields,field_description:altis_incident.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: altis_incident
+#: model:altis.notification_type,name:altis_incident.nt_email
+msgid "Email"
+msgstr "Email"
+
+#. module: altis_incident
+#: model:altis.incident_type,name:altis_incident.it_flooding
+msgid "Flooding"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__id
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__id
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__id
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__id
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__id
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__id
+#: model:ir.model.fields,field_description:altis_incident.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_needaction
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_has_error
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.action_incident_mail_wizard
+msgid "Incident Mail Wizard"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__date
+msgid "Incident date"
+msgstr "Date de début de l'incident"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__end_date
+msgid "Incident end date"
+msgstr "Date de fin de l'incident"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__incident_type_id
+msgid "Incident type"
+msgstr "Type de notification"
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.incident_type_list_action
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__incident_type_ids
+#: model:ir.ui.menu,name:altis_incident.incident_type_menu
+msgid "Incident types"
+msgstr "Types de notification"
+
+#. module: altis_incident
+#: model:sms.template,name:altis_incident.sms_template_data_altis_incident
+msgid "Incident: Send by SMS Text Message"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model,name:altis_incident.model_incident_mail_wizard
+msgid "IncidentMmail wizard"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.incident_list_action
+#: model:ir.ui.menu,name:altis_incident.incident_menu
+msgid "Incidents"
+msgstr "Notifications"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: altis_incident
+#: model:altis.incident_type,name:altis_incident.it_landslide
+msgid "Landslide"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_res_partner__x_primary_key
+#: model:ir.model.fields,field_description:altis_incident.field_res_users__x_primary_key
+msgid "Laravel ID"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard____last_update
+#: model:ir.model.fields,field_description:altis_incident.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__write_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__write_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__write_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__write_uid
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__write_uid
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__write_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__write_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__write_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__write_date
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__write_date
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_area__name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident_type__name
+#: model:ir.model.fields,field_description:altis_incident.field_altis_notification_type__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.notification_type_list_action
+#: model:ir.model.fields,field_description:altis_incident.field_altis_subscription__notification_type_ids
+#: model:ir.ui.menu,name:altis_incident.notification_type_menu
+msgid "Notification types"
+msgstr "Moyens de notification"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__notified
+msgid "Notified"
+msgstr "Notifiées"
+
+#. module: altis_incident
+#: model_terms:ir.ui.view,arch_db:altis_incident.altis_incident_form_view
+msgid "Notify people"
+msgstr "Notifier les personnes"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: altis_incident
+#: model:altis.notification_type,name:altis_incident.nt_sms
+msgid "SMS"
+msgstr "SMS"
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: altis_incident
+#: model_terms:ir.ui.view,arch_db:altis_incident.incident_mail_wizard_form
+msgid "Send"
+msgstr "Envoyer"
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: altis_incident
+#: code:addons/altis_incident/wizard/incident_mail_wizard.py:0
+#, python-format
+msgid "Subscribers were notified. %s emails and %s sms."
+msgstr "Les abonnés ont été informés. %s emails et %s sms."
+
+#. module: altis_incident
+#: code:addons/altis_incident/models/models.py:0
+#, python-format
+msgid "Subscription Email"
+msgstr "Email d'abonnement"
+
+#. module: altis_incident
+#: model:ir.actions.act_window,name:altis_incident.subscription_list_action
+#: model:ir.ui.menu,name:altis_incident.subscription_menu
+msgid "Subscriptions"
+msgstr "Abonnements"
+
+#. module: altis_incident
+#: model:ir.model.fields,help:altis_incident.field_altis_incident__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_altis_incident__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: altis_incident
+#: model:ir.model.fields,field_description:altis_incident.field_incident_mail_wizard__message
+msgid "message"
+msgstr ""

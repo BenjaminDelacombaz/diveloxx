@@ -1,0 +1,165 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="incident_type_list_action">
+            <field name="name">Incident types</field>
+            <field name="res_model">altis.incident_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first incident type</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="area_list_action">
+            <field name="name">Areas</field>
+            <field name="res_model">altis.area</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first area</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="notification_type_list_action">
+            <field name="name">Notification types</field>
+            <field name="res_model">altis.notification_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first notification type</p>
+            </field>
+        </record>
+
+        <!-- Subscription views -->
+        <!-- ////////////////////////////////// -->
+        <record model="ir.actions.act_window" id="subscription_list_action">
+            <field name="name">Subscriptions</field>
+            <field name="res_model">altis.subscription</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first subscription</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="altis_subscription_tree">
+            <field name="name">altis.subscription.tree</field>
+            <field name="model">altis.subscription</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="area_id"/>
+                    <field name="notification_type_ids" widget="many2many_tags"/>
+                    <field name="incident_type_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="altis_subscription_search">
+            <field name="name">altis.subscription.search</field>
+            <field name="model">altis.subscription</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="area_id"/>
+                    <field name="partner_id"/>
+                    <field name="notification_type_ids"/>
+                    <field name="incident_type_ids"/>
+                </search>
+            </field>
+        </record>
+        <!-- ////////////////////////////////// -->
+        <!-- Incident views -->
+        <!-- ////////////////////////////////// -->
+        <record model="ir.actions.act_window" id="incident_list_action">
+            <field name="name">Incidents</field>
+            <field name="res_model">altis.incident</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first incident</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="altis_incident_tree">
+            <field name="name">altis.incident.tree</field>
+            <field name="model">altis.incident</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                    <field name="end_date"/>
+                    <field name="incident_type_id"/>
+                    <field name="area_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        <record id="altis_incident_form_view" model="ir.ui.view">
+            <field name="name">altis.incident.form.view</field>
+            <field name="model">altis.incident</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_notify_people" string="Notify people" class="oe_highlight" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="area_ids"/>
+                        </group>
+                        <group>
+                            <field name="incident_type_id"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="notified"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="altis_incident_search">
+            <field name="name">altis.incident.search</field>
+            <field name="model">altis.incident</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                    <field name="end_date"/>
+                    <field name="incident_type_id"/>
+                    <field name="area_ids"/>
+                </search>
+            </field>
+        </record>
+
+        <!--        Menus-->
+        <menuitem id="main_altis_menu" name="Altis incidents" action="incident_list_action"/>
+        <menuitem id="incident_type_menu" name="Incident types" parent="main_altis_menu"
+                  action="incident_type_list_action"/>
+        <menuitem id="notification_type_menu" name="Notification types" parent="main_altis_menu"
+                  action="notification_type_list_action"/>
+        <menuitem id="area_menu" name="Areas" parent="main_altis_menu" action="area_list_action"/>
+        <menuitem id="subscription_menu" name="Subscriptions" parent="main_altis_menu"
+                  action="subscription_list_action"/>
+
+    </data>
+</odoo>

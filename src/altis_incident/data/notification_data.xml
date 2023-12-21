@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
-    <record model="altis.notification_type" id="nt_email">
-        <field name="name">Email</field>
-    </record>
-    <record model="altis.notification_type" id="nt_sms">
-        <field name="name">SMS</field>
-    </record>
-</odoo>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
-    <record model="altis.incident_type" id="it_activation">
-        <field name="name">Activation or deactivation</field>
-    </record>
-    <record model="altis.incident_type" id="it_breakdown">
-        <field name="name">Breakdown</field>
-    </record>
-</odoo>

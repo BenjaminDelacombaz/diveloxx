@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-incident_type_manager,incident type manager,model_altis_incident_type,altis_manager,1,1,1,1
-area_manager,area manager,model_altis_area,altis_manager,1,1,1,1
-notification_type_manager,notification type manager,model_altis_notification_type,altis_manager,1,1,1,1
-subscription_manager,subscription manager,model_altis_subscription,altis_manager,1,1,1,1
-incident_manager,incident manager,model_altis_incident,altis_manager,1,1,1,1
-access_incident_mail_wizard,Incident mail Wizard,model_incident_mail_wizard,altis_manager,1,1,1,1
